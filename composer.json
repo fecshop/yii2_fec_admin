@@ -5,7 +5,7 @@
     "yii2",
     "fec",
 	"ecommerce",
-	"fec_admin"
+	"fec_admin",
 	"dwz"
   ],
   "homepage": "https://github.com/fancyecommerce/yii2_fec_admin",
