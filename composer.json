@@ -25,7 +25,7 @@
     "php": ">=5.4.0",
     "yiisoft/yii2": ">=2.0.6",
     "bower-asset/fec_dwz_lib":"~1.0",
-    "fancyecommerce":"fec"
+    "fancyecommerce/fec":"~1.1"
   },
   "autoload": {
     "psr-4": {
