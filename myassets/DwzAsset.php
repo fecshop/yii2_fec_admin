@@ -5,11 +5,11 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace fecadmin\assets;
+namespace fecadmin\myassets;
 use yii\web\AssetBundle;
 class DwzAsset extends AssetBundle
 {
-    public $sourcePath = '@fecadmin/assets';
+    public $sourcePath = '@fecadmin/myassets';
 	
 	
 	//public $cssOptions = ['condition' => 'lte IE9'];

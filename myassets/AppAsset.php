@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace fecadmin\assets;
+namespace fecadmin\myassets;
 
 use yii\web\AssetBundle;
 
@@ -42,8 +42,8 @@ class AppAsset extends AssetBundle
       //  'yii\web\YiiAsset',
     //    'yii\bootstrap\BootstrapAsset',
 	//	'yii\web\YiiAsset',
-		'fecadmin\assets\DwzAsset',
-		'fecadmin\assets\DwzIEAsset',
-		'fecadmin\assets\DwzIE9Asset',
+		'fecadmin\myassets\DwzAsset',
+		'fecadmin\myassets\DwzIEAsset',
+		'fecadmin\myassets\DwzIE9Asset',
     ];
 }

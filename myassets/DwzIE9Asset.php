@@ -5,11 +5,11 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace fecadmin\assets;
+namespace fecadmin\myassets;
 use yii\web\AssetBundle;
 class DwzIE9Asset extends AssetBundle
 {
-    public $sourcePath = '@fecadmin/assets';
+    public $sourcePath = '@fecadmin/myassets';
 	
 	public $jsOptions = [ 
 		'position' => \yii\web\View::POS_HEAD ,

@@ -7,7 +7,7 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use fecadmin\assets\AppAsset;
+use fecadmin\myassets\AppAsset;
 use common\widgets\Alert;
 use fec\helpers\CUrl;
 use fecadmin\views\layouts\Head;
@@ -20,8 +20,8 @@ AppAsset::register($this);
 
 //$cssAndJs = Head::getJsAndCss();
 //var_dump( $cssAndJs['js']);exit;
-//$this->assetBundles["fecadmin\assets\AppAsset"]->js 	= $cssAndJs['js'];
-//$this->assetBundles["fecadmin\assets\AppAsset"]->css = $cssAndJs['css'];
+//$this->assetBundles["fecadmin\myassets\AppAsset"]->js 	= $cssAndJs['js'];
+//$this->assetBundles["fecadmin\myassets\AppAsset"]->css = $cssAndJs['css'];
 
 ?>
 
@@ -43,7 +43,7 @@ AppAsset::register($this);
 	
 <script> 
 <?php
-$publishedPath = $this->assetManager->publish('@fecadmin/assets/dwz_jui-master/dwz.frag.xml');
+$publishedPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-master/dwz.frag.xml');
  
  ?>
 　$(function(){
