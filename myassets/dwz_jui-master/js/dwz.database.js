@@ -412,7 +412,7 @@
 					
 					function _doPost(){
 						$.ajax({
-							type:'POST', url:$this.attr('href'), dataType:'json', cache: false,
+							type:'GET', url:$this.attr('href'), dataType:'json', cache: false,
 							data: function(){
 								if (postType == 'map'){
 									return $.map(ids.split(','), function(val, i) {

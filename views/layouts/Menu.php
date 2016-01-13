@@ -16,9 +16,9 @@ class Menu{
 					<ul class="tree treeFolder">
 						<li><a href="tabsPage.html" target="navTab">用户管理</a>
 							<ul>
-								<li><a href="dd" target="navTab" rel="main">我的账户</a></li>
-								<li><a href="dd" target="navTab" rel="main">账号管理</a></li>
-								<li><a href="ddd" target="navTab" rel="page1">权限管理</a></li>
+								<li><a href="/fecadmin/account/index" target="navTab" rel="main">我的账户</a></li>
+								<li><a href="/fecadmin/account/manager" target="navTab" rel="main">账号管理</a></li>
+								<li><a href="/fecadmin/roles/manager" target="navTab" rel="page1">权限管理</a></li>
 							</ul>
 						</li>
 						

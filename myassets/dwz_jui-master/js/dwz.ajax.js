@@ -169,6 +169,63 @@ function dialogAjaxDone(json){
 	}
 }
 
+
+
+/*在对话框中操作数据，并刷新对话框*/ 
+function dialogAjaxDoneCloseAndReflush(json) { 
+	DWZ.ajaxDone(json);
+	if (json.statusCode == DWZ.statusCode.ok){
+		if (json.navTabId){
+			navTab.reload(json.forwardUrl, {navTabId: json.navTabId});
+		} else if (json.rel) {
+			var $pagerForm = $("#pagerForm", navTab.getCurrentPanel());
+			var args = $pagerForm.size()>0 ? $pagerForm.serializeArray() : {}
+			navTabPageBreak(args, json.rel);
+		}
+		if ("closeCurrent" == json.callbackType) {
+			$.pdialog.closeCurrent();
+		}
+	}
+	$.pdialog.closeCurrent(); 
+	navTab.reload();
+}
+
+
+/*在对话框中操作数据，并刷新对话框*/ 
+function dialogAjaxDoneReflush(json) { 
+	DWZ.ajaxDone(json);
+	if (json.statusCode == DWZ.statusCode.ok){
+		if (json.navTabId){
+			navTab.reload(json.forwardUrl, {navTabId: json.navTabId});
+		} else if (json.rel) {
+			var $pagerForm = $("#pagerForm", navTab.getCurrentPanel());
+			var args = $pagerForm.size()>0 ? $pagerForm.serializeArray() : {}
+			navTabPageBreak(args, json.rel);
+		}
+		if ("closeCurrent" == json.callbackType) {
+			$.pdialog.closeCurrent();
+		}
+	}
+	//$.pdialog.closeCurrent(); 
+	navTab.reload();
+}
+
+
+/*在对话框中操作数据，并刷新对话框*/ 
+function dialogAjaxDoneFather(json) { 
+	DWZ.ajaxDone(json); 
+	if (json.statusCode == DWZ.statusCode.ok) { 
+		if (json.navTabId) { 
+			var dialog = $("body").data(json.navTabId); 
+			$.pdialog.reload(dialog.data("url"), { data: {}, dialogId: json.navTabId, callback: null }) 
+		} 
+		if ("closeCurrent" == json.callbackType) { 
+			$.pdialog.closeCurrent(); 
+		} 
+	} 
+}
+
+
 /**
  * 处理navTab上的查询, 会重新载入当前navTab
  * @param {Object} form
@@ -283,7 +340,7 @@ function ajaxTodo(url, callback){
 	var $callback = callback || navTabAjaxDone;
 	if (! $.isFunction($callback)) $callback = eval('(' + callback + ')');
 	$.ajax({
-		type:'POST',
+		type:'GET',
 		url:url,
 		dataType:"json",
 		cache: false,

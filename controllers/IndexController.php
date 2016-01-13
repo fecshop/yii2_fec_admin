@@ -4,25 +4,21 @@ namespace fecadmin\controllers;
 
 use Yii;
 use yii\helpers\Url;
-use yii\web\Controller;
+use fecadmin\FecadminbaseController;
 /**
  * Site controller
  */
-class IndexController extends Controller
+class IndexController extends FecadminbaseController
 {
-
-    public function getViewPath()
-    {
-        
-		return Yii::getAlias('@fecadmin/views') . DIRECTORY_SEPARATOR . $this->id;
-    }
-
+	
+  
     public function actionIndex()
     {
-       // echo 1;exit;
-	  // $this->layout = Yii::getAlias('@fecadmin/views')."/layouts/main.php";
+		//echo 1;exit;
+		$this->layout = "main.php";
 		return $this->render('index');
 	}
+	
 	public function actionMenu()
     {
         echo 2;exit;

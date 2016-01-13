@@ -1,0 +1,2 @@
+\cp -rf ./ /code/fancyecommerce/yii2_fec_admin/
+

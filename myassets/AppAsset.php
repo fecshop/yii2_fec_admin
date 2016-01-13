@@ -15,7 +15,7 @@ use yii\web\AssetBundle;
  */
 class AppAsset extends AssetBundle
 {
-	public $sourcePath = '@bower/fec_dwz_lib';
+	//public $sourcePath = '@bower/fec_dwz_lib';
     public $basePath = '@webroot';
     public $baseUrl = '@web';
 	public $css = [];
