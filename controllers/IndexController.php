@@ -15,7 +15,7 @@ class IndexController extends FecadminbaseController
     public function actionIndex()
     {
 		//echo 1;exit;
-		$this->layout = "main.php";
+		$this->layout = "dashboard.php";
 		return $this->render('index');
 	}
 	

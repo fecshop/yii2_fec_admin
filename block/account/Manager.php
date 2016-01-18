@@ -2,6 +2,7 @@
 namespace fecadmin\block\account;
 use fecadmin\FecadminbaseBlock;
 use fecadmin\models\AdminUser;
+use fecadmin\models\AdminRole;
 use fec\helpers\CUrl;
 class Manager extends FecadminbaseBlock{
 	public $_obj ;
@@ -124,6 +125,23 @@ class Manager extends FecadminbaseBlock{
 				'width'			=> '110',
 				'align' 		=> 'center',
 			],
+			
+			[	
+				'orderField'	=> 'person',
+				'label'			=> '姓名',
+				'width'			=> '110',
+				'align' 		=> 'center',
+			],
+			
+			[	
+				'orderField'	=> 'role',
+				'width'			=> '110',
+				'align' 		=> 'left',
+				'display'		=> AdminRole::getAdminRoleArr(),
+			],
+			
+			
+			
 			[	
 				'orderField'	=> 'email',
 				'width'			=> '110',

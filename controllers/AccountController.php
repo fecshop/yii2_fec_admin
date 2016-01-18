@@ -27,6 +27,7 @@ class AccountController extends FecadminbaseController
 		return $this->render($this->action->id,$data);
 	}
 	
+	
 	public function actionManageredit()
     {
 		//echo $this->action->id ;exit;

@@ -20,6 +20,8 @@ class AdminUserForm extends AdminUser {
             ['email', 'string', 'max' => 255],
 			['email', 'validateEmail'],
 			
+			['role', 'required'],
+			['person', 'required'],
 			
         //    ['email', 'unique', 'targetClass' => '\fecadmin\models\AdminUser', 'message' => 'This email address has already been taken.'],
 

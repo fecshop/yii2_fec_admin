@@ -107,10 +107,30 @@ $publishedPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-master
 				</ul>
 				<div class="navTab-panel tabsPageContent layoutBox">
 					<div class="page unitBox">
+						<div class="accountInfo">
+							
+							
+							<p><span>您好：<?= \fec\helpers\CUser::getCurrentUsername();   ?></span></p>
+							</div>
 						<div class="pageFormContent" layoutH="80" style="margin-right:230px">
-							<?= $content; ?>
+								
+								<ul style="line-height:30px;text-align:center;margin-top:30px;">
+									<li>
+										<h1 style="font-size:36px;"> FEC ADMIN 后台管理</h1>
+										
+									</li>
+									<li>
+										<div style="padding-top:150px;">
+										注：如果权限不够，请联系管理员开通权限。
+										<a target="_blank" href="http://www.fancyecommerce.com">详细说明：FancyECommcer Team</a>
+										</div>
+									</li>
+								
+								</ul>
+
 						</div>
 						
+					
 					</div>
 					
 				</div>

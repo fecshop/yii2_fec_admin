@@ -48,17 +48,23 @@ $login_bannerPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-mas
  <div id="login">
 		<div id="login_header">
 			<h1 class="login_logo">
-				<a href="http://demo.dwzjs.com"><img src="<?= $login_logoPath[1] ?>" /></a>
+				<!--  <img src="<?= $login_logoPath[1] ?>" /> -->
+				<a href="http://demo.dwzjs.com" style="font-size:35px;text-decoration:none;
+				color:#6f8992;">FEC  Admin</a>
 			</h1>
 			<div class="login_headerContent">
 				<div class="navList">
 					<ul>
 						<li><a href="#">设为首页</a></li>
-						<li><a href="http://bbs.dwzjs.com">反馈</a></li>
-						<li><a href="doc/dwz-user-guide.pdf" target="_blank">帮助</a></li>
+						<li><a href="#">反馈</a></li>
+						<li><a href="#" target="_blank">帮助</a></li>
 					</ul>
 				</div>
-				<h2 class="login_title"><img src="<?= $login_titlePath[1] ?>" /></h2>
+				<h2 class="login_title">
+				<!-- <img src="<?= $login_titlePath[1] ?>" /> -->
+				<a href="http://demo.dwzjs.com" style="font-size:15px;text-decoration:none;
+				color:#6f8992;">登录FEC 后台管理平台</a>
+				</h2>
 			</div>
 		</div>
 		<div id="login_content">
@@ -68,20 +74,20 @@ $login_bannerPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-mas
 			<div class="login_banner"><img src="<?= $login_bannerPath[1] ?>" /></div>
 			<div class="login_main">
 				<ul class="helpList">
-					<li><a href="#">下载驱动程序</a></li>
-					<li><a href="#">如何安装密钥驱动程序？</a></li>
-					<li><a href="#">忘记密码怎么办？</a></li>
-					<li><a href="#">为什么登录失败？</a></li>
+					<li><a href="#">功能简介</a></li>
+					<li><a href="#">FEC ADMIN 详细说明</a></li>
+					<li><a href="#">如何快速开始您的后台项目？</a></li>
+					
 				</ul>
 				<div class="login_inner">
-					<p>您可以使用 网易网盘 ，随时存，随地取</p>
-					<p>您还可以使用 闪电邮 在桌面随时提醒邮件到达，快速收发邮件。</p>
-					<p>在 百宝箱 里您可以查星座，订机票，看小说，学做菜…</p>
+					<p>FEC Admin 是基于yii2 和 DWZ UI 整合一起的快速开发的后台系统</p>
+					<p>本后台已经实现用户登录和基于菜单的权限控制</p>
+					<p>本后台对DWZ的一些常用组件进行了封装，只需要配置好方法，就可以快速增删改查</p>
 				</div>
 			</div>
 		</div>
 		<div id="login_footer">
-			Copyright &copy; 2009 www.dwzjs.com Inc. All Rights Reserved.
+			Copyright &copy; 2016 www.fancyecommerce.com Inc. All Rights Reserved.
 		</div>
 	</div>
 

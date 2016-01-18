@@ -230,7 +230,7 @@ class FecadminbaseBlock{
 					<li><a class="add"   href="'.$this->_editUrl.'"  target="dialog" height="580" width="1000" drawable="true" mask="true"><span>添加</span></a></li>
 
 					<li><a target="dialog" height="580" width="1000" drawable="true" mask="true" class="edit" href="'.$this->_editUrl.'?'.$this->_paramKey.'={sid_user}" ><span>修改</span></a></li>
-					<li><a title="确实要删除这些记录吗?" target="selectedTodo" rel="ids" postType="string" href="'.$this->_deleteUrl.'" class="delete"><span>批量删除</span></a></li>
+					<li><a title="确实要删除这些记录吗?" target="selectedTodo" rel="'.$this->_paramKey.'s" postType="string" href="'.$this->_deleteUrl.'" class="delete"><span>批量删除</span></a></li>
 					<li class="line">line</li>
 					<li><a class="icon csvdownload"   href="'.$csvUrl.'" target="dwzExport" targetType="navTab" title="实要导出这些记录吗?"><span>导出EXCEL</span></a></li>
 				</ul>';

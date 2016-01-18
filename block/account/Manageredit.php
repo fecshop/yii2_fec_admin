@@ -9,6 +9,7 @@ use fec\helpers\CRequest;
 use fec\helpers\CUrl;
 use fec\helpers\CModel;
 use fecadmin\models\AdminUser\AdminUserForm;
+use fecadmin\models\AdminRole;
 
 class Manageredit{
 	
@@ -121,6 +122,10 @@ class Manageredit{
 	
 	
 	public function getEditArr(){
+		
+		
+	
+		
 		return [
 			[
 				'label'=>'用户名',
@@ -147,6 +152,14 @@ class Manageredit{
 				],
 			],
 			[
+				'label'=>'姓名',
+				'name'=>'person',
+				'require' => 1,
+				'display'=>[
+					'type' => 'inputString',
+				],
+			],
+			[
 				'label'=>'用户状态',
 				'name'=>'status',
 				'display'=>[
@@ -164,10 +177,7 @@ class Manageredit{
 				'name'=>'role',
 				'display'=>[
 					'type' => 'select',
-					'data' => [
-						'1' 	=> '超级管理员',
-						'2' 	=> '普通管理员',
-					]
+					'data' => AdminRole::getAdminRoleArr(),
 				],
 			],
 			[
