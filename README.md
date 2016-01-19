@@ -84,7 +84,7 @@ return [
 				],
 ];
 ```
-如果要使用缓存，则需要设置缓存，我个人使用的是redis缓存（可选，非必须）
+如果要使用缓存，则需要设置缓存，我个人使用的是redis缓存（可选，非必须），注意使用redis一定要设置密码，不然会被攻击的，我就吃过亏，最后重置系统。
 
 ```
 'redis' => [
@@ -93,7 +93,7 @@ return [
             'port' => 6379,
             'database' => 0,
 			//'unixSocket' => '/var/run/redis/redis.sock',
-			'password'  => 'dfa@#dsfaerfwev@#R$FRE23r12EDFqa',
+			'password'  => 'dfa@2EDFqa',
 			// 'unixsocket' => '/var/run/redis/redis.sock',
 		//	'unixSocket' => '/tmp/redis.sock',
         ],
