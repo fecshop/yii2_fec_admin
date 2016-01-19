@@ -48,11 +48,9 @@ composer require --prefer-dist fancyecommerce/fec_admin
 composer install
 ```
 
-2、使用
+2、配置
 ------------
 
-
-调用
 
 
 配置：在原来的基础上添加如下代码：
