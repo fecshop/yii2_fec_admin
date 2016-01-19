@@ -53,7 +53,7 @@ composer install
 
 
 
-配置：在原来的基础上添加如下代码：
+配置：在原来的基础上添加如下代码：main.php 
 ```php
 'modules'=>[
 		'fecadmin' => '\fecadmin\Module',
@@ -75,7 +75,7 @@ composer install
     		],
     	],
 ```
-param设置：config.php
+param设置：config/param.php
 ```
 <?php
 return [
