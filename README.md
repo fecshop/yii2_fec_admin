@@ -15,6 +15,12 @@ github: https://github.com/fancyecommerce/yii2_fec_admin/
 
 > 有任何疑问可以发邮件到 2358269014@qq.com
 
+> demo:  http://demo.fancyecommerce.com/          
+
+> demo account:      admin       admin123(密码)
+
+> 欢迎安装使用，或者学习，本框架有一定的学习yii2的价值。
+
 ---
 有任何建议或者需求欢迎来反馈 [issues](../../issues)
 
