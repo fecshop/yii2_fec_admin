@@ -119,3 +119,6 @@ return [
         ],
 ```        
 
+sql部分，暂时没有使用 migrate，您可以复制文件：
+/vendor/fancyecommerce/fec_admin/doc/demofancyecommerce.sql里面的sql到您的数据库中执行
+
