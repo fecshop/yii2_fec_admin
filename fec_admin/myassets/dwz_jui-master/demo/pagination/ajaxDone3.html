@@ -1,0 +1,9 @@
+{
+	"statusCode":"200",
+	"message":"\u64cd\u4f5c\u6210\u529f",
+	"navTabId":"",
+	"rel":"jbsxBox2",
+	"callbackType":"",
+	"forwardUrl":"",
+	"confirmMsg":""
+}
