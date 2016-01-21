@@ -8,6 +8,7 @@ use Yii;
 use fec\helpers\CRequest;
 use fec\helpers\CUrl;
 use fec\helpers\CModel;
+use fec\helpers\CConfig;
 use fecadmin\models\AdminRole;
 use fecadmin\models\AdminMenu;
 use fecadmin\models\AdminRoleMenu;
@@ -86,6 +87,15 @@ class Manageredit{
 		$this->_one->attributes = $this->_param;
 		
 		if($this->_one[$this->_paramKey]){
+			if(CConfig::param("is_demo")){
+				if($this->_one[$this->_paramKey] == 4){
+					echo  json_encode(array(
+							"statusCode"=>"300",
+							"message"=>"demo版本，不允许编辑admin role",
+					));
+					exit;
+				}
+			}
 			if ($this->_one->validate()) {
 				$this->saveMenuAndRole();
 				//$this->_one->save();
@@ -227,6 +237,15 @@ class Manageredit{
 		if($role_id = CRequest::param($this->_paramKey)){
 			$model = AdminRole::findOne([$this->_paramKey => $role_id]);
 			if($model->role_id){
+				# 不允许删除admin
+				if(CConfig::param("is_demo")){
+					if($model->role_id == 4){
+						echo  json_encode(["statusCode"=>"300",
+							"message" => 'demo版本，不允许编辑admin',
+						]);
+						exit;
+					}
+				}
 				$innerTransaction = Yii::$app->db->beginTransaction();
 				try {
 					$model->delete();
@@ -251,6 +270,16 @@ class Manageredit{
 			
 			$innerTransaction = Yii::$app->db->beginTransaction();
 			try {
+				# 不允许删除admin
+				if(CConfig::param("is_demo")){
+					if(in_array(4,$id_arr)){
+						echo  json_encode(["statusCode"=>"300",
+							"message" => 'demo版本，不允许删除admin',
+						]);
+						$innerTransaction->rollBack();
+						exit;
+					}
+				}
 				AdminRole::deleteAll(['in','role_id',$id_arr]);
 				# 删除这个role 对应的所有关联的菜单
 				AdminRoleMenu::deleteAll(['in','role_id',$id_arr]);

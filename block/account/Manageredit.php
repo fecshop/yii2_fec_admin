@@ -61,6 +61,14 @@ class Manageredit{
 		}
 		if($model[$this->_paramKey]){
 			if ($model->validate()) {
+				#不允许编辑admin
+				if($model[$this->_paramKey] == 2){
+					echo  json_encode(array(
+							"statusCode"=>"300",
+							"message"=>"you can not update Admin User,you only can update other Account",
+					));
+				exit;
+				}
 				$model->save();
 				echo  json_encode(array(
 						"statusCode"=>"200",
@@ -91,9 +99,18 @@ class Manageredit{
 		//$request_param 		= CRequest::param();
 		//$this->_param		= $request_param;
 		//$this->initParam();
+		# admin 用户不能删除
+		
 		if($id = CRequest::param('id')){
 			$model = AdminUserForm::findOne(['id' => $id]);
 			if($model->id){
+				# 不允许删除admin
+				if($model->username == 'admin'){
+					echo  json_encode(["statusCode"=>"300",
+							"message" => 'You can not delete Admin User!',
+						]);
+					exit;
+				}
 				$model->delete();
 				echo  json_encode(["statusCode"=>"200",
 					"message" => 'Delete Success!',
@@ -107,6 +124,17 @@ class Manageredit{
 			}
 		}else if($ids = CRequest::param('ids')){
 			$id_arr = explode(",",$ids);
+			
+			# 不允许删除admin
+			$adminUser = AdminUserForm::findOne(['username' => 'admin']);
+			$adminUserId = $adminUser->id;
+			if(in_array($adminUserId,$id_arr)){
+				echo  json_encode(["statusCode"=>"300",
+						"message" => 'You can not delete Admin User!',
+					]);
+				exit;
+			}
+			
 			AdminUserForm::deleteAll(['in','id',$id_arr]);
 			echo  json_encode(["statusCode"=>"200",
 					"message" => "$ids Delete Success!",
@@ -141,7 +169,7 @@ class Manageredit{
 				'display'=>[
 					'type' => 'inputPassword',
 				],
-				'require' => 0,
+				'require' => 1,
 			],
 			[
 				'label'=>'邮箱',

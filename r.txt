@@ -1,2 +1,1 @@
-\cp -rf ./ /code/fancyecommerce/yii2_fec_admin/
-
+\cp -rf /www/web/online/fancyecommerce.com/vendor/fancyecommerce/fec_admin/* /github/fec_admin/

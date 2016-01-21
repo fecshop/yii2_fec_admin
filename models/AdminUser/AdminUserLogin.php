@@ -22,9 +22,11 @@ class AdminUserLogin extends Model{
 		
 		if (!$this->hasErrors()) {
             $AdminUser = $this->getAdminUser();
-            if (!$AdminUser || !$AdminUser->validatePassword($this->password)) {
-                $this->addError($attribute, 'username:Username cannot be blank.');
-            }
+            if (!$AdminUser) {
+                $this->addError('用户名', '用户名不存在');
+            }else if(!$AdminUser->validatePassword($this->password)){
+				$this->addError('用户名或密码','不正确');
+			}
         }
 	}
 	
