@@ -1,2 +1,0 @@
-\cp -rf /www/web/online/fancyecommerce.com/vendor/fancyecommerce/fec_admin/ /github/fec_admin
-
