@@ -91,14 +91,14 @@ composer install
 3、安装sql
 ------------
 
-在yii2的安装路径下面找到文件 vendor/fancyecommerce/fec_admin/doc/demofancyecommerce.sql
+在yii2的安装路径下面找到文件 /www/web/develop/fecadmin/vendor/fancyecommerce/fec_admin/doc/demofancyecommerce.sql
 
 通过sql导入数据
 
 4、配置NGINX
 ------------
 
-nginx设置，指向  /www/web/develop/fecadmin/web
+nginx设置，指向  /www/web/develop/fecadmin/backend/web
 
 5、配置
 ------------
