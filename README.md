@@ -187,8 +187,7 @@ return [
     'params' => $params,
 ];
 
-
-
+完成
 
 6、配置yii2的数据库
 ------------
@@ -198,7 +197,7 @@ yii2的配置：
 common/config/main-local.php 添加mysql的配置。
 
 
-6、访问
+7、访问
 ------------
 
 访问后台 http://admin.fancyecommerce.com
