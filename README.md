@@ -48,14 +48,34 @@ fork 参与开发，欢迎提交 Pull Requests，然后 Pull Request
 
 ---
 
-1、安装
+
+1、安装Yii2
 ------------
 
 安装这个扩展的首选方式是通过 [composer](http://getcomposer.org/download/).
 
+我的安装路径是在 /www/web/develop/fecadmin 文件夹下面
+
 执行
 
 ```
+cd /www/web/develop
+composer  require "fxp/composer-asset-plugin:~1.1.1"
+composer create-project yiisoft/yii2-app-advanced fecadmin 2.0.7
+cd fecadmin
+./init
+
+```
+
+
+
+2、安装FecAdmin扩展
+------------
+
+执行
+
+```
+cd /www/web/develop/fecadmin
 composer require --prefer-dist fancyecommerce/fec_admin
 
 ```
@@ -66,17 +86,30 @@ composer require --prefer-dist fancyecommerce/fec_admin
 composer install
 ```
 
-2、配置
+执行完上面，就安装完成了。
+
+3、安装sql
 ------------
 
+在yii2的安装路径下面找到文件 vendor/fancyecommerce/fec_admin/doc/demofancyecommerce.sql
 
+通过sql导入数据
 
-配置：在原来的基础上添加如下代码：main.php 
+4、配置NGINX
+------------
+
+nginx设置，指向  /www/web/develop/fecadmin/web
+
+5、配置
+------------
+
+配置：在原来的基础上添加如下代码：/backend/config/main.php  在return数组中添加配置
 ```php
+'homeUrl' => 'http://admin.fancyecommerce.com',
 'modules'=>[
 		'fecadmin' => '\fecadmin\Module',
 	],
- 'components' => [
+'components' => [
        'user' => [
             'identityClass' => 'fecadmin\models\AdminUser',
             'enableAutoLogin' => true,
@@ -93,31 +126,86 @@ composer install
     		],
     	],
 ```
-param设置：config/param.php
-```
+
+配置完成后的文件main.php如下：
+
+```php
 <?php
+$params = array_merge(
+    require(__DIR__ . '/../../common/config/params.php'),
+    require(__DIR__ . '/../../common/config/params-local.php'),
+    require(__DIR__ . '/params.php'),
+    require(__DIR__ . '/params-local.php')
+);
+
 return [
-	'theme'				=>  'default',
-	'systemlog' 		=> [
-					'enable' => true,
-				],
-];
-```
-如果要使用缓存，则需要设置缓存，我个人使用的是redis缓存（可选，非必须），注意使用redis一定要设置密码，不然会被攻击的，我就吃过亏，最后重置系统。
-
-```
-'redis' => [
-            'class' => 'yii\redis\Connection',
-            'hostname' => 'localhost',
-            'port' => 6379,
-            'database' => 0,
-			//'unixSocket' => '/var/run/redis/redis.sock',
-			'password'  => 'dfa@2EDFqa',
-			// 'unixsocket' => '/var/run/redis/redis.sock',
-		//	'unixSocket' => '/tmp/redis.sock',
+    'id' => 'app-backend',
+    'basePath' => dirname(__DIR__),
+    'controllerNamespace' => 'backend\controllers',
+    'bootstrap' => ['log'],
+	'homeUrl' => 'http://www.fancyecommerce.com',
+    'modules' => ['fecadmin' => '\fecadmin\Module',],
+    'components' => [
+        
+        'log' => [
+            'traceLevel' => YII_DEBUG ? 3 : 0,
+            'targets' => [
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['error', 'warning'],
+                ],
+            ],
         ],
-```        
+        'errorHandler' => [
+            'errorAction' => 'site/error',
+        ],
+        /*
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+            ],
+        ],
+        */
+		
+		'user' => [
+            'identityClass' => 'fecadmin\models\AdminUser',
+            'enableAutoLogin' => true,
+        ],
+        'urlManager' => [
+                'class' => 'yii\web\UrlManager',
+                'enablePrettyUrl' => true,
+                'showScriptName' => false,
+                'rules' => [
+                    '' => 'fecadmin/index/index',
+                    //'blog' => 'blog/index/index',
 
-sql部分，暂时没有使用 migrate，您可以复制文件：
-/vendor/fancyecommerce/fec_admin/doc/demofancyecommerce.sql里面的sql到您的数据库中执行
+                ],
+            
+        ],
+    ],
+    'params' => $params,
+];
+
+
+
+
+6、配置yii2的数据库
+------------
+
+yii2的配置：
+
+common/config/main-local.php 添加mysql的配置。
+
+
+6、访问
+------------
+
+访问后台 http://admin.fancyecommerce.com
+初始账号密码为：  admin   admin123
+
+
+就可以使用了。
+
+
 
