@@ -50,7 +50,7 @@ $login_bannerPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-mas
 			<h1 class="login_logo">
 				<!--  <img src="<?= $login_logoPath[1] ?>" /> -->
 				<a href="http://demo.dwzjs.com" style="font-size:35px;text-decoration:none;
-				color:#6f8992;">FEC  Admin</a>
+				color:#6f8992;"><img src="<?= CUrl::getHomeUrl(); ?>/skin/default/images/blue_logo.png"></a>
 			</h1>
 			<div class="login_headerContent">
 				<div class="navList">
@@ -63,7 +63,7 @@ $login_bannerPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-mas
 				<h2 class="login_title">
 				<!-- <img src="<?= $login_titlePath[1] ?>" /> -->
 				<a href="http://demo.dwzjs.com" style="font-size:15px;text-decoration:none;
-				color:#6f8992;">登录FEC 后台管理平台</a>
+				color:#6f8992;">登录TOMTOP数据管理平台</a>
 				</h2>
 			</div>
 		</div>
@@ -75,19 +75,19 @@ $login_bannerPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-mas
 			<div class="login_main">
 				<ul class="helpList">
 					<li><a href="#">功能简介</a></li>
-					<li><a href="#">FEC ADMIN 详细说明</a></li>
-					<li><a href="#">如何快速开始您的后台项目？</a></li>
+					<li><a href="#">TOMTOP 详细说明</a></li>
+					<li><a href="#">如何快速开始？</a></li>
 					
 				</ul>
 				<div class="login_inner">
-					<p>FEC Admin 是基于yii2 和 DWZ UI 整合一起的快速开发的后台系统</p>
-					<p>本后台已经实现用户登录和基于菜单的权限控制</p>
-					<p>本后台对DWZ的一些常用组件进行了封装，只需要配置好方法，就可以快速增删改查</p>
+					<p>TOMTOP 数据网站 是用来公司的大数据的操作平台</p>
+					<p>本平台已经实现和ERP的登录同步</p>
+					<p></p>
 				</div>
 			</div>
 		</div>
 		<div id="login_footer">
-			Copyright &copy; 2016 www.fancyecommerce.com Inc. All Rights Reserved.
+			Copyright &copy; 2016 www.tomtop.com Inc. All Rights Reserved.
 		</div>
 	</div>
 

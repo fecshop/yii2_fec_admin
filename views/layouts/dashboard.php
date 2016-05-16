@@ -40,7 +40,17 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-	
+	<script src="/ZeroClipboard.min.js"></script>
+	<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+    </script>
+	  
 <script> 
 <?php
 $publishedPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-master/dwz.frag.xml');
@@ -116,13 +126,12 @@ $publishedPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-master
 								
 								<ul style="line-height:30px;text-align:center;margin-top:30px;">
 									<li>
-										<h1 style="font-size:36px;"> FEC ADMIN 后台管理</h1>
+										<h1 style="font-size:36px;"> Tomtop 大数据管理平台</h1>
 										
 									</li>
 									<li>
 										<div style="padding-top:150px;">
 										注：如果权限不够，请联系管理员开通权限。
-										<a target="_blank" href="http://www.fancyecommerce.com">详细说明：FancyECommcer Team</a>
 										</div>
 									</li>
 								

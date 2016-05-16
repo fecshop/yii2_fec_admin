@@ -92,7 +92,7 @@ class Index extends FecadminbaseBlock{
 				'name'=> 'created_at',
 				'columns_type' =>'datetime',
 				'value'=>[
-					'get'=>'LOG时间开始',
+					'gte'=>'LOG时间开始',
 					'lt' =>'LOG时间结束',
 				]
 			],
@@ -207,6 +207,8 @@ class Index extends FecadminbaseBlock{
 				CCache::flushAll();
 			}
 		}
+		# 刷新 配置 缓存
+		\fecadmin\helpers\CConfig::flushCacheConfig();
 		echo  json_encode(array(
 						"statusCode"=>"200",
 						"message"=>"reflush cache success",

@@ -43,6 +43,8 @@ class AppAsset extends AssetBundle
     //    'yii\bootstrap\BootstrapAsset',
 	//	'yii\web\YiiAsset',
 		'fecadmin\myassets\DwzAsset',
+		'fecadmin\myassets\EchartsAsset',
+		'fecadmin\myassets\ChosenAsset',
 		'fecadmin\myassets\DwzIEAsset',
 		'fecadmin\myassets\DwzIE9Asset',
     ];

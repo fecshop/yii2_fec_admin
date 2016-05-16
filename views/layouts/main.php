@@ -38,8 +38,10 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <?= Html::csrfMetaTags() ?>
+	
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+	
 	
 <script> 
 <?php
@@ -62,6 +64,7 @@ $publishedPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-master
 	});
 });
 </script> 
+<script src="/ZeroClipboard.min.js"></script>
 </head>
 <body>
 <?php $this->beginBody() ?>

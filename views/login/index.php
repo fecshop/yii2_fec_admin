@@ -2,7 +2,11 @@
 use fec\helpers\CUrl;
 use fec\helpers\CRequest;
 ?>
-
+<style>
+.login_bar {
+    padding-left: 80px;
+}
+</style>
 <form action="<?= CUrl::getUrl('fecadmin/login/index'); ?>" method="post">
 	<?php echo CRequest::getCsrfInputHtml();  ?>	
 	<p>
@@ -13,19 +17,21 @@ use fec\helpers\CRequest;
 		<label>密码：</label>
 		<input type="password" name="login[password]" size="20" class="login_input" />
 	</p>
+	<!--
 	<p>
 		<label>验证码：</label>
 		<input name="login[captcha]" class="code" type="text" size="5" />
 		<?php
-			echo \fec\helpers\CCaptcha::widget([
-				'name' => 'login[captcha]',
-				'class' => \fec\helpers\CCaptcha::className(),
-				'id'	=> 'login-captcha',
-				'template' =>  '{image}',
+			//echo \fec\helpers\CCaptcha::widget([
+			//	'name' => 'login[captcha]',
+			//	'class' => \fec\helpers\CCaptcha::className(),
+			//	'id'	=> 'login-captcha',
+			//	'template' =>  '{image}',
 				//'action'	=> '/fecadmin/captcha/index'
-			]);
+			//]);
 		?>
 	</p>
+	-->
 	<p>
 		<span style="color:#cc0000"><?= $error; ?> </span>
 	</p>

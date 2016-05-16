@@ -169,12 +169,12 @@ class Manageredit{
 				'display'=>[
 					'type' => 'inputPassword',
 				],
-				'require' => 1,
+				'require' => 0,
 			],
 			[
 				'label'=>'邮箱',
 				'name'=>'email',
-				'require' => 1,
+				'require' => 0,
 				'display'=>[
 					'type' => 'inputEmail',
 				],
@@ -182,11 +182,21 @@ class Manageredit{
 			[
 				'label'=>'姓名',
 				'name'=>'person',
-				'require' => 1,
+				'require' => 0,
 				'display'=>[
 					'type' => 'inputString',
 				],
 			],
+			[
+				'label'=>'员工编号',
+				'name'=>'code',
+				'require' => 1,
+				'display'=>[
+					'type' => 'inputString',
+				],
+				
+			],
+			
 			[
 				'label'=>'用户状态',
 				'name'=>'status',

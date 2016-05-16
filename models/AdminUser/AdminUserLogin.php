@@ -11,10 +11,10 @@ class AdminUserLogin extends Model{
 	public function rules()
     {
         return [
-            [['username', 'password','captcha'], 'required'],
+            [['username', 'password'], 'required'],
 			['password', 'validatePassword'],
-            ['captcha', 'captcha','captchaAction'=>'/fecadmin/captcha/index'],
-			
+         //   ['captcha', 'captcha','captchaAction'=>'/fecadmin/captcha/index'],
+		//	 ['captcha', 'required'],
         ];
     }
 	

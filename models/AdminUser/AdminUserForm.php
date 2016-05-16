@@ -15,13 +15,20 @@ class AdminUserForm extends AdminUser {
             ['username', 'string', 'min' => 2, 'max' => 20],
 			
 			['email', 'filter', 'filter' => 'trim'],
-            ['email', 'required'],
-            ['email', 'email'],
-            ['email', 'string', 'max' => 255],
-			['email', 'validateEmail'],
+        //    ['email', 'required'],
+        //    ['email', 'email'],
+        //    ['email', 'string', 'max' => 255],
+		//	['email', 'validateEmail'],
+			
+			['code', 'required'],
+			['code', 'filter', 'filter' => 'trim'],
+			['code', 'validateCode'],
+		//	['code', 'string', 'min' => 5, 'max' => 5],
 			
 			['role', 'required'],
-			['person', 'required'],
+			
+			['person', 'filter', 'filter' => 'trim'],
+		//	['person', 'required'],
 			
         //    ['email', 'unique', 'targetClass' => '\fecadmin\models\AdminUser', 'message' => 'This email address has already been taken.'],
 
@@ -53,6 +60,24 @@ class AdminUserForm extends AdminUser {
 						->one();
 			if($one['id']){
 				$this->addError($attribute,"this username is exist!");
+			}
+		}
+	}
+	
+	
+	public function validateCode($attribute, $params){
+		//$user = User::findByUsername($this->username)
+		if($this->id){
+			$one = AdminUser::find()->where(" id != ".$this->id." AND code = '".$this->code."' ")
+						->one();
+			if($one['id']){
+				$this->addError($attribute,"this code is exist!");
+			}
+		}else{
+			$one = AdminUser::find()->where(" code = '".$this->code."' ")
+						->one();
+			if($one['id']){
+				$this->addError($attribute,"this code is exist!");
 			}
 		}
 	}

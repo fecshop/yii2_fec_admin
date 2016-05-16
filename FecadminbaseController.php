@@ -38,19 +38,21 @@ class FecadminbaseController extends FecController
 	{
 		# 当前的role key
 		$controller_role_key = $this->getCurrentControllerRoleKey();
+		
 		# 配置中的各个不同的role_id 对应的role key
 		$roles_keys = $this->getCurrentRoleKeys();
 		# 如果当前的role_key 存在于 当前的权限role_keys数组中，则，可以使用role 
 		$roles_keys = is_array($roles_keys) ? $roles_keys : [];
-		if(!in_array($controller_role_key,$roles_keys)){
-			# 如果不存在，则说明没有权限，禁止访问，exit
-			echo  '<span style="    padding: 12px;color: #cc0000;display: block;font-size: 40px;margin: 30px 50px;">
-					You donot have role to visit this controller
-				</span>';
-			
-			exit;
+		if($controller_role_key){
+			if(!in_array($controller_role_key,$roles_keys)){
+				# 如果不存在，则说明没有权限，禁止访问，exit
+				echo  '<span style="    padding: 12px;color: #cc0000;display: block;font-size: 40px;margin: 30px 50px;">
+						You donot have role to visit this controller
+					</span>';
+				
+				exit;
+			}
 		}
-		
 		parent::beforeAction($action);
 		$this->saveSystemLog();
 		return true;

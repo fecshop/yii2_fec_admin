@@ -86,6 +86,13 @@ class Manager extends FecadminbaseBlock{
 			],
 			[	# 字符串类型
 				'type'=>'inputtext',
+				'title'=>'员工编号',
+				'name'=>'code' ,
+				'columns_type' =>'string'
+			],
+			
+			[	# 字符串类型
+				'type'=>'inputtext',
 				'title'=>'邮箱',
 				'name'=>'email' ,
 				'columns_type' =>'string'
@@ -95,10 +102,12 @@ class Manager extends FecadminbaseBlock{
 				'name'=> 'created_at_datetime',
 				'columns_type' =>'datetime',
 				'value'=>[
-					'get'=>'用户创建时间开始',
+					'gte'=>'用户创建时间开始',
 					'lt' =>'用户创建时间结束',
 				]
 			],
+			
+			
 		];
 		return $data;
 	}
@@ -129,6 +138,12 @@ class Manager extends FecadminbaseBlock{
 			[	
 				'orderField'	=> 'person',
 				'label'			=> '姓名',
+				'width'			=> '110',
+				'align' 		=> 'center',
+			],
+			[	
+				'orderField'	=> 'code',
+				'label'			=> '员工编号',
 				'width'			=> '110',
 				'align' 		=> 'center',
 			],
@@ -163,13 +178,7 @@ class Manager extends FecadminbaseBlock{
 				//'convert'		=> ['datetime' =>'date'],   # int  date datetime  显示的转换
 			],
 			
-			[	
-				'orderField'	=> 'auth_key',
-				//'label'			=> '用户名称',
-				'width'			=> '190',
-				'align' 		=> 'center',
-				
-			],
+			
 			
 			[	
 				'orderField'	=> 'status',
@@ -183,13 +192,7 @@ class Manager extends FecadminbaseBlock{
 				
 			],
 			
-			[	
-				'orderField'	=> 'access_token',
-				//'label'			=> '用户名称',
-				//'width'			=> '190',
-				'align' 		=> 'center',
-				
-			],
+			
 			
 			/*
 			[	

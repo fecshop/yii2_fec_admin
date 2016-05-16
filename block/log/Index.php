@@ -80,7 +80,7 @@ class Index extends FecadminbaseBlock{
 				'name'=> 'created_at',
 				'columns_type' =>'datetime',
 				'value'=>[
-					'get'=>'LOG时间开始',
+					'gte'=>'LOG时间开始',
 					'lt' =>'LOG时间结束',
 				]
 			],
