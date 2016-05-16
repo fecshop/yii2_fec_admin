@@ -90,10 +90,9 @@ composer install
 
 3、安装sql
 ------------
+通过migrate安装
+./yii migrate --migrationPath=@fecadmin/migrations/
 
-在yii2的安装路径下面找到文件 /www/web/develop/fecadmin/vendor/fancyecommerce/fec_admin/doc/demofancyecommerce.sql
-
-通过sql导入数据
 
 4、配置NGINX
 ------------
