@@ -91,8 +91,10 @@ composer install
 3、安装sql
 ------------
 通过migrate安装
-./yii migrate --migrationPath=@fecadmin/migrations/
 
+```php
+./yii migrate --migrationPath=@fecadmin/migrations/
+```
 
 4、配置NGINX
 ------------
