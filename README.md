@@ -27,11 +27,11 @@ github: https://github.com/fancyecommerce/yii2_fec_admin/
 
 > 本框架比较适合做ERP CRM  等后台管理性框架。
 
-> 由于年底空余时间不多，先告一段落，找时间会做出详细文档，供参阅。
+> 2016年，找时间会做出详细文档，供参阅,继续完善这个后台扩展。
 
 > 本框架的指导思想为：尽大力的封装，尽量通过 php数组配置的方式，展现出想要的功能。
 
-> yiichina中文官网发布地址：http://www.yiichina.com/extension/638 ，欢迎评价，提意见，和不足
+> FancyEcommerce 中文官网发布地址：http://www.fancyecommerce.com/2016/04/29/yii2-dwz-%E6%89%A9%E5%B1%95-%E6%8F%92%E4%BB%B6/ ，欢迎评价，提意见，和不足
 
 > 作者		：Terry
 
