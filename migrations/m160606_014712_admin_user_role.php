@@ -19,7 +19,7 @@ class m160606_014712_admin_user_role extends Migration
 				INSERT INTO `admin_user_role` (`id`, `user_id`, `role_id`) VALUES
 				(3, 1, 14),
 				(5, 1, 13),
-				(12, 2, 4),
+				(12, 2, 4);
 			";
 		$this->execute($sql2);
     }
