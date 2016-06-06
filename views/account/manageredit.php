@@ -1,11 +1,14 @@
 <?php
 use yii\helpers\Html;
 use fec\helpers\CRequest;
+use fecadmin\models\AdminRole;
 ?>
 <style>
+.checker{float:left;}
 .dialog .pageContent {background:none;}
 .dialog .pageContent .pageFormContent{background:none;}
 </style>
+
 <div class="pageContent"> 
 	<form  method="post" action="<?= $saveUrl ?>" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDoneCloseAndReflush);">
 		<?php echo CRequest::getCsrfInputHtml();  ?>	
@@ -18,11 +21,43 @@ use fec\helpers\CRequest;
 					<div>
 						<?= $editBar; ?>
 						
+						
+						
+						
 					</div>
+					
+					
 				</fieldset>
 				
-				
-				
+				<fieldset id="fieldset_table_qbe">
+					<legend style="color:#cc0000">ROLE信息</legend>
+					
+					<div>
+							
+						<div class="checkbox-list">
+							<?php 
+								$role_arr = AdminRole::getAdminRoleArr();
+								foreach($role_arr as $id => $label){
+									$checked = '';
+									if(in_array($id,$role_ids)){
+										$checked = 'checked="true"';
+									}
+							?>
+							<label class="checkbox-inline">
+								<div id="uniform-inlineCheckbox21" class="checker">
+									<span><input <?= $checked; ?>  type="checkbox" value="<?= $id; ?>" id="inlineCheckbox" name="role[<?= $id; ?>]"></span>
+								</div>
+								<?= $label ?>
+							</label>
+							
+							<?php
+								}
+							?>
+								
+						</div>
+					
+					</div>
+				</fieldset>
 		</div>
 	
 		<div class="formBar">

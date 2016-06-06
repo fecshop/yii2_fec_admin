@@ -73,7 +73,7 @@ class AdminUser extends ActiveRecord implements IdentityInterface ,RateLimitInte
             'email'		 	=> '邮箱地址',
             'created_at' 	=> '创建时间INT',
             'updated_at' 	=> '更新时间INT',
-			'role' 			=> '权限',
+			//'role' 			=> '权限',
 			'access_token ' => '访问令牌',
 			'created_at_datetime' => '创建时间',
 			'updated_at_datetime' => '更新时间',

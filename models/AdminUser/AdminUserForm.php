@@ -25,7 +25,7 @@ class AdminUserForm extends AdminUser {
 			['code', 'validateCode'],
 		//	['code', 'string', 'min' => 5, 'max' => 5],
 			
-			['role', 'required'],
+		//	['role', 'required'],
 			
 			['person', 'filter', 'filter' => 'trim'],
 		//	['person', 'required'],

@@ -6,6 +6,7 @@ use fec\helpers\CUrl;
 use fec\helpers\CConfig;
 use fec\helpers\CCache;
 use fecadmin\models\AdminRole;
+use fecadmin\models\AdminUserRole;
 use fecadmin\models\AdminLog;
 
 use fec\controllers\FecController;
@@ -78,7 +79,12 @@ class FecadminbaseController extends FecController
 	# 得当当前用户role 对应的菜单role_key数组
 	public function getCurrentRoleKeys(){
 		$identity = Yii::$app->user->identity;
-		$role_id = $identity->role ;
+		$user_id = $identity->id ;
+		
+		$roles = AdminUserRole::find()->asArray()->where([
+			'user_id' => $user_id,
+		])->all();
+		
 		$AdminRole = new AdminRole;
 		# 缓存读取role key
 		if(!(CCache::get(CCache::ALL_ROLE_KEY_CACHE_HANDLE))){
@@ -87,7 +93,16 @@ class FecadminbaseController extends FecController
 		$roleKeys = CCache::get(CCache::ALL_ROLE_KEY_CACHE_HANDLE);
 		
 		//var_dump($roleKeys);exit;
-		return isset($roleKeys[$role_id]) ? $roleKeys[$role_id] : '';
+		//$role_ids = [];
+		$menu_roles = [];
+		if(!empty($roles)){
+			foreach($roles as $role){
+				$role_id = $role['role_id'];
+				$menu_role = isset($roleKeys[$role_id]) ? $roleKeys[$role_id] : [];
+				$menu_roles = array_merge($menu_roles,$menu_role);
+			}
+		}
+		return $menu_roles;
 	}
 	
 	

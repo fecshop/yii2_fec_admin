@@ -3,6 +3,8 @@ namespace fecadmin;
 use Yii;
 class Module extends \fec\AdminModule
 {
+   #Yii::$app   Module
+   
    
     public function init()
     {

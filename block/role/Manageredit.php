@@ -12,6 +12,7 @@ use fec\helpers\CConfig;
 use fecadmin\models\AdminRole;
 use fecadmin\models\AdminMenu;
 use fecadmin\models\AdminRoleMenu;
+use fecadmin\models\AdminUserRole;
 class Manageredit{
 	
 	public $_param;
@@ -251,6 +252,7 @@ class Manageredit{
 					$model->delete();
 					# 删除这个role 对应的所有关联的菜单
 					AdminRoleMenu::deleteAll(['role_id' => $role_id]);
+					AdminUserRole::deleteAll(['role_id' => $role_id]);
 					$innerTransaction->commit();
 				} catch (Exception $e) {
 					$innerTransaction->rollBack();
@@ -282,7 +284,7 @@ class Manageredit{
 				}
 				AdminRole::deleteAll(['in','role_id',$id_arr]);
 				# 删除这个role 对应的所有关联的菜单
-				AdminRoleMenu::deleteAll(['in','role_id',$id_arr]);
+				AdminUserRole::deleteAll(['in','role_id',$id_arr]);
 				$innerTransaction->commit();
 			} catch (Exception $e) {
 				$innerTransaction->rollBack();

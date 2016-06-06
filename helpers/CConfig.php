@@ -33,7 +33,7 @@ class CConfig extends \fec\helpers\CConfig
 		}else{
 			$one = AdminConfig::findOne(['key' => $key]);
 			if($one->id){
-				self::setCacheConfig($cache_key,$one->value);
+				self::setCacheConfig($key,$one->value);
 				return $one->value;
 			}
 			return '';

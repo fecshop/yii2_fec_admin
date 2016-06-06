@@ -8,6 +8,7 @@ use Yii;
 use fec\helpers\CRequest;
 use fec\helpers\CUrl;
 use fec\helpers\CModel;
+use fecadmin\helpers\CConfig;
 use fecadmin\models\AdminConfig;
 
 class Manageredit{
@@ -54,7 +55,7 @@ class Manageredit{
 		
 		if($model[$this->_paramKey]){
 			if ($model->validate()) {
-				
+				CConfig::setCacheConfig($model['key'],$model['value']);
 				$model->save();
 				echo  json_encode(array(
 						"statusCode"=>"200",
@@ -64,6 +65,7 @@ class Manageredit{
 			}
 		}else{
 			if ($model->validate()) {
+				CConfig::setCacheConfig($model['key'],$model['value']);
 				$model->save();
 				echo  json_encode(array(
 						"statusCode"=>"200",

@@ -43,17 +43,29 @@ class AdminMenu extends ActiveRecord
 		return $this->_admin_menu;
 	}
 	
+	
+	
 	public function getActiveMenuIds(){
 		if($this->_active_menu_ids === null){
 			$user = Yii::$app->user->identity;
+			$user_id = $user['id'];
+			$roles = AdminUserRole::find()->asArray()->where([
+				'user_id' => $user_id
+			])->all();
+			$role_ids = [];
+			if(!empty($roles)){
+				foreach($roles as $one){
+					$role_ids[] = $one['role_id'];
+				}
+			}
 			//var_dump($user);exit;
 			$menu_ids = [];
-			if($role_id = $user->role){
+			if(!empty($role_ids)){
 				
 				$AdminRoleMenus = AdminRoleMenu::find()
 						->asArray()
 						->select(['menu_id'])
-						->where(['role_id' => $role_id])
+						->where(['in','role_id',$role_ids])
 						->all();
 				if(!empty($AdminRoleMenus)){
 					foreach($AdminRoleMenus as $menu){
@@ -62,6 +74,7 @@ class AdminMenu extends ActiveRecord
 				}
 				
 			}
+			$menu_ids = array_unique($menu_ids);
 			$this->_active_menu_ids = $menu_ids;
 		}
 		return $this->_active_menu_ids;

@@ -19,7 +19,7 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
 	public $css = [];
-	 public $js = [];
+	public $js = [];
     /*
 	public $css = [
 			'themes/default/style.css',
@@ -47,5 +47,7 @@ class AppAsset extends AssetBundle
 		'fecadmin\myassets\ChosenAsset',
 		'fecadmin\myassets\DwzIEAsset',
 		'fecadmin\myassets\DwzIE9Asset',
+		'fecadmin\myassets\CustomAsset',
+		
     ];
 }

@@ -147,14 +147,14 @@ class Manager extends FecadminbaseBlock{
 				'width'			=> '110',
 				'align' 		=> 'center',
 			],
-			
+			/*
 			[	
 				'orderField'	=> 'role',
 				'width'			=> '110',
 				'align' 		=> 'left',
 				'display'		=> AdminRole::getAdminRoleArr(),
 			],
-			
+			*/
 			
 			
 			[	

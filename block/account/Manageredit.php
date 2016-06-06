@@ -7,10 +7,11 @@ namespace fecadmin\block\account;
 use Yii;
 use fec\helpers\CRequest;
 use fec\helpers\CUrl;
+use fec\helpers\CDB;
 use fec\helpers\CModel;
 use fecadmin\models\AdminUser\AdminUserForm;
 use fecadmin\models\AdminRole;
-
+use fecadmin\models\AdminUserRole;
 class Manageredit{
 	
 	public $_param;
@@ -38,9 +39,10 @@ class Manageredit{
 		$this->_param		= $request_param;
 		
 		$this->initParam();
-		
+		$role_ids = $this->getUserRoleIds();
 		return [
 			'editBar' => $this->getEditBar(),
+			'role_ids'=>$role_ids,
 			'saveUrl' => CUrl::getUrl('fecadmin/account/managereditsave'),
 		];
 	}
@@ -62,14 +64,17 @@ class Manageredit{
 		if($model[$this->_paramKey]){
 			if ($model->validate()) {
 				#不允许编辑admin
+				/*
 				if($model[$this->_paramKey] == 2){
 					echo  json_encode(array(
 							"statusCode"=>"300",
 							"message"=>"you can not update Admin User,you only can update other Account",
 					));
-				exit;
+					exit;
 				}
+				*/
 				$model->save();
+				$this->saveUserRole($model[$this->_paramKey]);
 				echo  json_encode(array(
 						"statusCode"=>"200",
 						"message"=>"update",
@@ -79,6 +84,8 @@ class Manageredit{
 		}else{
 			if ($model->validate()) {
 				$model->save();
+				$user_id = Yii::$app->db->getLastInsertID();
+				$this->saveUserRole($user_id);
 				echo  json_encode(array(
 						"statusCode"=>"200",
 						"message"=>"insert",
@@ -92,6 +99,61 @@ class Manageredit{
 		]);
 		exit;
 		
+	}
+	
+	public function saveUserRole($user_id){
+		
+		$role = CRequest::param("role");
+		$role_ids = [];
+		if(!empty($role)){
+			//var_dump($role);
+			$innerTransaction = Yii::$app->db->beginTransaction();
+			try {
+				foreach($role as $k=>$role_id){
+					$one = AdminUserRole::findOne([
+						'role_id' => $role_id,
+						'user_id' => $user_id,
+					]);
+					$role_ids[] = $role_id;
+					if(!$one['id']){
+						$one = new AdminUserRole;
+						$one->role_id = $role_id;
+						$one->user_id = $user_id;
+						$one->save();
+					}
+					
+				}
+			
+				$table = AdminUserRole::tableName();
+				if(!empty($role_ids)){
+					$role_str = implode(",",$role_ids);
+					$sql = "delete from $table where user_id = $user_id and role_id not in ($role_str)";
+				}else{
+					$innerTransaction->rollBack();
+					echo  json_encode([
+						"statusCode"=>"300",
+						"message" => "您至少要勾选一个用户权限组",
+					]);
+					exit;
+				}
+			
+				CDB::deleteBySql($sql);
+				$innerTransaction->commit();
+			} catch (Exception $e) {
+				$innerTransaction->rollBack();
+				echo  json_encode(["statusCode"=>"300",
+					"message" => 'Save User Role Fail !',
+				]);
+				exit;
+			}
+			
+		}else{
+			echo  json_encode([
+					"statusCode"=>"300",
+					"message" => "您至少要勾选一个用户权限组",
+				]);
+				exit;
+		}
 	}
 	
 	# 批量删除
@@ -111,7 +173,18 @@ class Manageredit{
 						]);
 					exit;
 				}
-				$model->delete();
+				$innerTransaction = Yii::$app->db->beginTransaction();
+				try {
+					$model->delete();
+					AdminUserRole::deleteAll(['user_id'=> $model->id]);
+					$innerTransaction->commit();
+				} catch (Exception $e) {
+					$innerTransaction->rollBack();
+					echo  json_encode(["statusCode"=>"300",
+						"message" => 'Delete Fail !',
+					]);
+					exit;
+				}
 				echo  json_encode(["statusCode"=>"200",
 					"message" => 'Delete Success!',
 				]);
@@ -134,8 +207,18 @@ class Manageredit{
 					]);
 				exit;
 			}
-			
-			AdminUserForm::deleteAll(['in','id',$id_arr]);
+			$innerTransaction = Yii::$app->db->beginTransaction();
+			try {
+				AdminUserForm::deleteAll(['in','id',$id_arr]);
+				AdminUserRole::deleteAll(['in','user_id',$id_arr]);
+				$innerTransaction->commit();
+			} catch (Exception $e) {
+				$innerTransaction->rollBack();
+				echo  json_encode(["statusCode"=>"300",
+					"message" => 'Delete All Fail !',
+				]);
+				exit;
+			}
 			echo  json_encode(["statusCode"=>"200",
 					"message" => "$ids Delete Success!",
 			]);
@@ -210,14 +293,14 @@ class Manageredit{
 				'require' => 1,
 				'default' => AdminUserForm::STATUS_ACTIVE,
 			],
-			[
-				'label'=>'权限',
-				'name'=>'role',
-				'display'=>[
-					'type' => 'select',
-					'data' => AdminRole::getAdminRoleArr(),
-				],
-			],
+			//[
+			//	'label'=>'权限',
+			//	'name'=>'role',
+			//	'display'=>[
+			//		'type' => 'select',
+			//		'data' => AdminRole::getAdminRoleArr(),
+			//	],
+			//],
 			[
 				'label'=>'出生日期',
 				'name'=>'birth_date',
@@ -238,6 +321,23 @@ class Manageredit{
 				],
 			],
 		];
+		
+	}
+	
+	public function getUserRoleIds(){
+		$user = $this->_one;
+		$user_id = $user['id'];
+		$roles = AdminUserRole::find()->asArray()
+			->where(['user_id' => $user_id])
+			->all()
+			;
+		$role_ids = [];
+		if(!empty($roles)){
+			foreach($roles as $r){
+				$role_ids[] = $r['role_id'];
+			}
+		}
+		return $role_ids;
 		
 	}
 	
