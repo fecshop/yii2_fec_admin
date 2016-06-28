@@ -24,7 +24,7 @@ class LogoutController extends Controller
 		}else{
 			Yii::$app->user->logout();
 		}	
-		$this->redirect("/fecadmin/login",200);
+		$this->redirect(\fec\helpers\CUrl::getUrl("fecadmin/login"),200);
 	}
 	
 	

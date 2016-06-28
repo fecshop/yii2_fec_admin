@@ -111,8 +111,9 @@ class LoginController extends Controller
     {
 		$isGuest = Yii::$app->user->isGuest;
 		//echo $isGuest;exit;
+		$homeUrl = Yii::$app->getHomeUrl();
 		if(!$isGuest){
-			$this->redirect("/",200);
+			$this->redirect($homeUrl,200);
 		}	
 		$errors = '';
 		$loginParam = \fec\helpers\CRequest::param('login');
@@ -121,7 +122,7 @@ class LoginController extends Controller
 			$AdminUserLogin = new AdminUserLogin;
 			$AdminUserLogin->attributes = $loginParam;
 			if($AdminUserLogin->login()){
-				$this->redirect("/",200); 
+				$this->redirect($homeUrl,200); 
 			}else{
 				$errors = CModel::getErrorStr($AdminUserLogin->errors);
 			}

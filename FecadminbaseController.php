@@ -8,7 +8,7 @@ use fec\helpers\CCache;
 use fecadmin\models\AdminRole;
 use fecadmin\models\AdminUserRole;
 use fecadmin\models\AdminLog;
-
+use yii\base\InvalidValueException;
 use fec\controllers\FecController;
 /**
  * fec admin 模块的controller配置
@@ -23,6 +23,8 @@ class FecadminbaseController extends FecController
 	public function __construct($id, $module, $config = []){
 		$isGuest = Yii::$app->user->isGuest;
 		//echo $isGuest;exit;
+		//\fec\helpers\CSession::set('a',1);
+		//echo \fec\helpers\CSession::get('a');
 		if($isGuest){
 			//$this->redirect("/fecadmin/login/index",200);
 			CUrl::redirect("/fecadmin/login/index"); # 立即跳转
@@ -88,7 +90,10 @@ class FecadminbaseController extends FecController
 		$AdminRole = new AdminRole;
 		# 缓存读取role key
 		if(!(CCache::get(CCache::ALL_ROLE_KEY_CACHE_HANDLE))){
-			CCache::set(CCache::ALL_ROLE_KEY_CACHE_HANDLE,$AdminRole->getAllRoleMenuRoleKey());
+			if(!CCache::set(CCache::ALL_ROLE_KEY_CACHE_HANDLE,$AdminRole->getAllRoleMenuRoleKey())){
+				throw new InvalidValueException('save role key to cache error,check your cache if it can write!');
+			}
+			
 		}
 		$roleKeys = CCache::get(CCache::ALL_ROLE_KEY_CACHE_HANDLE);
 		
