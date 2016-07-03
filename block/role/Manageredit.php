@@ -125,6 +125,7 @@ class Manageredit{
 		
 	}
 	
+	
 	# 保存编辑后的Role内容  AdminRole
 	# 以及role对应的菜单表  AdminRoleMenu
 	public function saveMenuAndRole(){
@@ -136,7 +137,6 @@ class Manageredit{
 			$this->_one->save();
 			$roleId = Yii::$app->db->getLastInsertID();
 		}
-		
 		$menu = CRequest::param("menu");
 		$select_menus = isset($menu['select_menus']) ? $menu['select_menus'] : '';
 		# 如果存在role_id 和选择的菜单
@@ -168,13 +168,20 @@ class Manageredit{
 				if(!empty($add_role_menu_ids)){
 					\fec\helpers\CDB::batchInsert($table,$columnsArr,$valueArr);
 				}
-				AdminRoleMenu::deleteAll(['in','menu_id',$remove_role_menu_ids]);
+				if(!empty($remove_role_menu_ids)){
+					$remove_role_menu_id_str = implode(',',$remove_role_menu_ids);
+					$table = AdminRoleMenu::tableName();
+					$sql = "delete from $table where menu_id in ($remove_role_menu_id_str ) and role_id = :role_id ";
+					$data = [ 'role_id'=> $roleId ];
+					CDB::deleteBySql($sql,$data);
+				}
 				$innerTransaction->commit();
 			} catch (Exception $e) {
 				$innerTransaction->rollBack();
 			}
 		}
 	}
+	
 	
 	# 得到当前数据库中role对应的所有的menu_id
 	public function getDbRoleMenuIds($roleId){

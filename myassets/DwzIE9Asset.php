@@ -10,7 +10,7 @@ use yii\web\AssetBundle;
 class DwzIE9Asset extends AssetBundle
 {
     public $sourcePath = '@fecadmin/myassets';
-	
+	//public $cssOptions = ['condition' => 'lte IE9'];
 	public $jsOptions = [ 
 		'position' => \yii\web\View::POS_HEAD ,
 		'condition' => 'lt IE 9'
