@@ -5,7 +5,7 @@ Yii2 Fancy Ecommerce ADMIN  (FEC ADMIN)
 
 github: https://github.com/fancyecommerce/yii2_fec_admin/
 
-[![Latest Stable Version](https://poser.pugx.org/fancyecommerce/fec_admin/v/stable)](https://packagist.org/packages/fancyecommerce/fec_admin) [![Total Downloads](https://poser.pugx.org/fancyecommerce/fec_admin/downloads)](https://packagist.org/packages/fancyecommerce/fec_admin) [![Latest Unstable Version](https://poser.pugx.org/fancyecommerce/fec_admin/v/unstable)](https://packagist.org/packages/fancyecommerce/fec_admin) [![License](https://poser.pugx.org/fancyecommerce/fec_admin/license)](https://packagist.org/packages/fancyecommerce/fec_admin)
+[![Latest Stable Version](https://poser.pugx.org/fancyecommerce/fec_admin/v/stable)](https://packagist.org/packages/fancyecommerce/fec_admin) [![Total Downloads](https://poser.pugx.org/fancyecommerce/fec_admin/downloads)](https://packagist.org/packages/fancyecommerce/fec_admin) [![Latest Unstable Version](https://poser.pugx.org/fancyecommerce/fec_admin/v/unstable)](https://packagist.org/packages/fancyecommerce/fec_admin)
 
 > 功能会继续完善，目前只是一个基本的用户，菜单，权限，log，cache的管理
 
