@@ -21,14 +21,17 @@ class FecadminbaseController extends FecController
     }
 	# 进行是否登录的验证
 	public function __construct($id, $module, $config = []){
+		
 		$isGuest = Yii::$app->user->isGuest;
 		//echo $isGuest;exit;
 		//\fec\helpers\CSession::set('a',1);
 		//echo \fec\helpers\CSession::get('a');
+		
 		if($isGuest){
 			//$this->redirect("/fecadmin/login/index",200);
 			CUrl::redirect("/fecadmin/login/index"); # 立即跳转
 		}
+		
 		//echo ;
 		//echo 1;
 		//echo Yii::$app->controller->id;

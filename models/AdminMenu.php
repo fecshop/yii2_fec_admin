@@ -109,7 +109,8 @@ class AdminMenu extends ActiveRecord
 				$str .=	'</div>';
 			}else{
 				if($this->hasChild($node)){
-					$str .=		'<li><a href="'.CUrl::getUrl($url_key).'" target="navTab" rel="page1">'.$name.'</a>';
+					//$str .=		'<li><a href="'.CUrl::getUrl($url_key).'" target="navTab" rel="page1">'.$name.'</a>';
+					$str .=		'<li><a href="javascript:void(0)" >'.$name.'</a>';
 					$str .=			'<ul>';	
 					$str .= $this->getLeftMenuTreeHtml($node['child'],$i+1);
 					$str .=			'</ul>';					
