@@ -6,7 +6,8 @@
     "fec",
 	"ecommerce",
 	"fec_admin",
-	"dwz"
+	"dwz",
+	"jui"
   ],
   "homepage": "https://github.com/fancyecommerce/yii2_fec_admin",
   "type": "yii2-extension",
