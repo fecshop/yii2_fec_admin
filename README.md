@@ -189,6 +189,9 @@ return [
 ];
 ```
 
+然后修改上面的代码： `'homeUrl' => 'http://www.fancyecommerce.com',`
+将这个地址改成你自己的域名，如果是本地，改成本地的ip地址，这个就是url的根路径。
+
 完成
 
 6、配置yii2的数据库
