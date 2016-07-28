@@ -212,7 +212,7 @@ common/config/main-local.php 添加mysql的配置。
 7、访问
 ------------
 
-访问后台 http://admin.fancyecommerce.com
+访问后台 http://127.0.0.1
 初始账号密码为：  admin   admin123
 
 
