@@ -61,7 +61,7 @@ fork 参与开发，欢迎提交 Pull Requests，然后 Pull Request
 ```
 cd /www/web/develop
 composer  require "fxp/composer-asset-plugin:~1.1.1"
-composer create-project yiisoft/yii2-app-advanced fecadmin 2.0.7
+composer create-project yiisoft/yii2-app-advanced fecadmin 2.0.9
 cd fecadmin
 ./init
 
@@ -96,10 +96,16 @@ composer install
 ./yii migrate --migrationPath=@fecadmin/migrations/
 ```
 
+您可以**不使用上面的migrate安装**，
+您可以打开文件 `./vendor/fancyecommerce/fec_admin/doc/fecshop-2016-07-28.sql`
+将里面的sql导入到mysql中即可。
+
 4、配置NGINX
 ------------
 
 nginx设置，指向  /www/web/develop/fecadmin/backend/web
+
+
 
 5、配置
 ------------
