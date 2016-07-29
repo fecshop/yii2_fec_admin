@@ -71,7 +71,7 @@ class FecadminbaseController extends FecController
 			}
 		}
 		parent::beforeAction($action);
-		$this->saveSystemLog();
+		\fecadmin\helpers\CSystemlog::saveSystemLog();
 		return true;
 	}
 	# 得到当前controller Role key

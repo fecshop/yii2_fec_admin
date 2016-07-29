@@ -6,11 +6,13 @@
  * @copyright Copyright (c) 2016 FecShop Software LLC
  * @license http://www.fecshop.com/license/
  */
-namespace fecadmin\block\log;
+namespace fecadmin\block\logtj;
 use fecadmin\FecadminbaseBlock;
 use fecadmin\models\AdminUser;
 use fecadmin\models\AdminLog;
 use fec\helpers\CUrl;
+use fec\helpers\CDate;
+use fec\helpers\CRequest;
 /**
  * @author Terry Zhao <2358269014@qq.com>
  * @since 1.0
@@ -43,6 +45,9 @@ class Index extends FecadminbaseBlock{
 		
 		*/
 		parent::initParam();
+		$this->_param['created_at_lt'] || $this->_param['created_at_lt'] = date('Y-m-d',strtotime(CDate::getCurrentDate().' +1 day '));
+		$this->_param['created_at_gte'] || $this->_param['created_at_gte'] = date('Y-m-d',strtotime($this->_param['created_at_gte'].' -1 month '));
+		
 		
 	}
 	
@@ -94,11 +99,15 @@ class Index extends FecadminbaseBlock{
 				'columns_type' =>'string'
 			],
 			
-			[	# 字符串类型
-				'type'=>'inputtext',
-				'title'=>'菜单',
-				'name'=>'menu' ,
-				'columns_type' =>'string'
+			[	# selecit的Int 类型
+				'type'=>'select',	 
+				'title'=>'类型',
+				'name'=>'tj_type',
+				'columns_type' =>'int',  # int使用标准匹配， string使用模糊查询
+				'value'=> [					# select 类型的值
+					'账号登录'=>'账号登录',
+					''=>'全部操作',
+				],
 			],
 			
 			[	# 时间区间类型搜索
@@ -155,27 +164,84 @@ class Index extends FecadminbaseBlock{
 			
 			
 			[	
-				'orderField'	=> 'url',
-				'label'			=> 'URL',
+				'orderField'	=> 'click_count',
+				'label'			=> '次数',
 				'width'			=> '220',
 				'align' 		=> 'left',
 				
 			],
 			
 			
-			[	
-				'orderField'	=> 'created_at',
-				'label'			=> '创建时间',
-				'width'			=> '130',
-				'align' 		=> 'center',
-				//'convert'		=> ['datetime' =>'date'],   # int  date datetime  显示的转换
-			],
+			
 			
 			
 			
 		];
 		return $table_th_bar ;
 	}
+	
+	# 得到表格的内容部分 
+	public function getTableTbody(){
+		$obj = $this->_obj;
+		//$searchArr = $this->getSearchArr();
+		//$query = $obj::find();
+		//if(is_array($searchArr) && !empty($searchArr)){
+		//	$this->initDateWhere($query,$searchArr);
+		//}
+		//$this->_param['numCount'] = $query->count();
+		//$query->limit = $this->_param['numPerPage'];
+		# 偏离值
+		//$query->offset = ($this->_param['pageNum'] -1)*$this->_param['numPerPage'] ;
+		//$query->orderBy([$this->_param['orderField']=> (($this->_param['orderDirection'] == 'desc') ? SORT_DESC : SORT_ASC)]);
+		//$data = $query->all();
+		
+		$offset = ($this->_param['pageNum'] -1)*$this->_param['numPerPage'] ;
+		$limit 	= $this->_param['numPerPage'];
+		$limit =  " limit  $offset , $limit ";
+		$group =  " account ";
+		$account 		= CRequest::param('account');
+		$person 		= CRequest::param('person');
+		$tj_type 		= CRequest::param('tj_type');
+		$created_at_lt 	= $this->_param['created_at_lt'];
+		$created_at_gte = $this->_param['created_at_gte'];
+		$where = [];
+		if($account)
+			$where []= " account = '$account' ";
+		if($person)
+			$where []= " person = '$person' ";
+		if($tj_type == '账号登录'){
+			$where []= " menu = '账号登录' ";
+			$group .=  " ,menu ";
+		}
+			
+		if($created_at_lt)
+			$where []= " created_at < '$created_at_lt' ";
+		if($created_at_gte)
+			$where []= " created_at >= '$created_at_gte' ";
+		if(!empty($where)){
+			$where = ' where '.implode(' and ',$where);
+		}else{
+			$where = '';
+		}
+			
+		$table = $obj::tableName();
+		
+		$db = \Yii::$app->db;
+		
+		# 得到 总数。		
+		$sql = "select count(*) as count from (select account,person,menu ,count(*) as click_count 
+		from $table  $where group by $group ) as t ";
+		$data_count = $db->createCommand($sql,[])->queryOne();
+		$this->_param['numCount'] = $data_count['count'];
+		# 得到数据
+		$sql = "select account,person,menu ,count(*) as click_count 
+		from $table  $where group by $group order by click_count DESC $limit ";
+		$data = $db->createCommand($sql,[])->queryAll();
+
+		return $this->getTableTbodyHtml($data);
+		
+	}
+	
 	
 	
 	

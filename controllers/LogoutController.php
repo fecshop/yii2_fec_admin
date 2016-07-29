@@ -30,7 +30,8 @@ class LogoutController extends Controller
 		}else{
 			Yii::$app->user->logout();
 		}	
-		$this->redirect(\fec\helpers\CUrl::getUrl("fecadmin/login"),200);
+		\fecadmin\helpers\CSystemlog::saveSystemLog();
+		$this->redirect("/fecadmin/login/index",200);
 	}
 	
 	
