@@ -1,17 +1,21 @@
 <?php
+/**
+ * FecShop file.
+ *
+ * @link http://www.fecshop.com/
+ * @copyright Copyright (c) 2016 FecShop Software LLC
+ * @license http://www.fecshop.com/license/
+ */
 use fec\helpers\CRequest;
 $this->title = 'Dashboard';
 
 ?>
-
-
 <script>
 	function  sbt(thiss, navTabAjaxDone){
 		
 		return validateCallback(thiss, navTabAjaxDone);
 	}
 </script>
-
 <div class="pageContent">
 	<form method="post" action="<?= $editUrl ?>" class="pageForm required-validate" onsubmit="return sbt(this, navTabAjaxDone);">
 		<?php echo CRequest::getCsrfInputHtml();  ?>

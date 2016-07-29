@@ -1,4 +1,11 @@
 <?php
+/**
+ * FecShop file.
+ *
+ * @link http://www.fecshop.com/
+ * @copyright Copyright (c) 2016 FecShop Software LLC
+ * @license http://www.fecshop.com/license/
+ */
 namespace fecadmin;
 use Yii;
 use yii\helpers\Url;
@@ -9,6 +16,10 @@ use fecadmin\models\AdminRole;
 use fecadmin\models\AdminUserRole;
 use fecadmin\models\AdminLog;
 use yii\base\InvalidValueException;
+/**
+ * @author Terry Zhao <2358269014@qq.com>
+ * @since 1.0
+ */
 use fec\controllers\FecController;
 /**
  * fec admin 模块的controller配置

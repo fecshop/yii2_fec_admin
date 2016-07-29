@@ -1,7 +1,10 @@
 <?php
-/*
- * 存放 一些基本的非数据库数据 如 html
- * 都是数组
+/**
+ * FecShop file.
+ *
+ * @link http://www.fecshop.com/
+ * @copyright Copyright (c) 2016 FecShop Software LLC
+ * @license http://www.fecshop.com/license/
  */
 namespace fecadmin\block\account;
 use Yii;
@@ -12,6 +15,10 @@ use fec\helpers\CModel;
 use fecadmin\models\AdminUser\AdminUserForm;
 use fecadmin\models\AdminRole;
 use fecadmin\models\AdminUserRole;
+/**
+ * @author Terry Zhao <2358269014@qq.com>
+ * @since 1.0
+ */
 class Manageredit{
 	
 	public $_param;

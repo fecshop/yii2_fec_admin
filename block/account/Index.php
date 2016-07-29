@@ -1,14 +1,21 @@
 <?php
+/**
+ * FecShop file.
+ *
+ * @link http://www.fecshop.com/
+ * @copyright Copyright (c) 2016 FecShop Software LLC
+ * @license http://www.fecshop.com/license/
+ */
 namespace fecadmin\block\account;
-
 use fec\helpers\CUrl;
 use fec\helpers\CRequest;
 use fec\helpers\CModel;
 use fecadmin\models\AdminUser\AdminUserResetPassword;
+/**
+ * @author Terry Zhao <2358269014@qq.com>
+ * @since 1.0
+ */
 class Index{
-	
-	
-	
 	public function getLastData(){
 		$updatepass = CRequest::param("updatepass");
 		if($updatepass){

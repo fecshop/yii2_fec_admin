@@ -1,6 +1,12 @@
 <?php
+/**
+ * FecShop file.
+ *
+ * @link http://www.fecshop.com/
+ * @copyright Copyright (c) 2016 FecShop Software LLC
+ * @license http://www.fecshop.com/license/
+ */
 namespace fecadmin\models;
-
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -20,6 +26,10 @@ use yii\filters\RateLimitInterface;
  * @property integer $created_at
  * @property integer $updated_at
  * @property string $password write-only password
+ */
+/**
+ * @author Terry Zhao <2358269014@qq.com>
+ * @since 1.0
  */
 class AdminUser extends ActiveRecord implements IdentityInterface ,RateLimitInterface
 {

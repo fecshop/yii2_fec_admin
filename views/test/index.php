@@ -1,10 +1,12 @@
-
 <?php
+/**
+ * FecShop file.
+ *
+ * @link http://www.fecshop.com/
+ * @copyright Copyright (c) 2016 FecShop Software LLC
+ * @license http://www.fecshop.com/license/
+ */
 use fec\helpers\CRequest;
-//var_dump($_SERVER);
-
-
-
 ?>
 <div class="loginForm">
 <form action="http://demo.fancyecommerce.com/fecadmin/test/index" method="post">

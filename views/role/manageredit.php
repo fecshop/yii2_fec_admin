@@ -1,6 +1,10 @@
 <?php
 /**
- * @var yii\web\View $this
+ * FecShop file.
+ *
+ * @link http://www.fecshop.com/
+ * @copyright Copyright (c) 2016 FecShop Software LLC
+ * @license http://www.fecshop.com/license/
  */
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;

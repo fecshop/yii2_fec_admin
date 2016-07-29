@@ -1,13 +1,19 @@
 <?php
+/**
+ * FecShop file.
+ *
+ * @link http://www.fecshop.com/
+ * @copyright Copyright (c) 2016 FecShop Software LLC
+ * @license http://www.fecshop.com/license/
+ */
 namespace fecadmin\helpers;
 use Yii; 
-//use yii\base\Model;
-//use backend\models\helper\Base.php
-# myapp\fec\helper\CConfig::getTheme();
 use fecadmin\models\AdminConfig;
 use fec\helpers\CCache;
-# use fecadmin\helpers\CConfig
-# CConfig::param("");
+/**
+ * @author Terry Zhao <2358269014@qq.com>
+ * @since 1.0
+ */
 class CConfig extends \fec\helpers\CConfig
 {
 	
