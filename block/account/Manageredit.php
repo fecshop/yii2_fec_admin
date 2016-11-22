@@ -132,9 +132,12 @@ class Manageredit{
 				}
 			
 				$table = AdminUserRole::tableName();
-				if(!empty($role_ids)){
-					$role_str = implode(",",$role_ids);
-					$sql = "delete from $table where user_id = $user_id and role_id not in ($role_str)";
+				if(!empty($role_ids) && is_array($role_ids)){
+					AdminUserRole::deleteAll([
+						'and',
+						['user_id' => $user_id],
+						['not in', 'role_id', $role_ids],
+					]);
 				}else{
 					$innerTransaction->rollBack();
 					echo  json_encode([
@@ -144,7 +147,7 @@ class Manageredit{
 					exit;
 				}
 			
-				CDB::deleteBySql($sql);
+				//CDB::deleteBySql($sql,$sql_data);
 				$innerTransaction->commit();
 			} catch (Exception $e) {
 				$innerTransaction->rollBack();

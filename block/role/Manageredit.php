@@ -10,6 +10,7 @@ namespace fecadmin\block\role;
 use Yii;
 use fec\helpers\CRequest;
 use fec\helpers\CUrl;
+use fec\helpers\CDB;
 use fec\helpers\CModel;
 use fec\helpers\CConfig;
 use fecadmin\models\AdminRole;
@@ -175,12 +176,13 @@ class Manageredit{
 				if(!empty($add_role_menu_ids)){
 					\fec\helpers\CDB::batchInsert($table,$columnsArr,$valueArr);
 				}
-				if(!empty($remove_role_menu_ids)){
-					$remove_role_menu_id_str = implode(',',$remove_role_menu_ids);
-					$table = AdminRoleMenu::tableName();
-					$sql = "delete from $table where menu_id in ($remove_role_menu_id_str ) and role_id = :role_id ";
-					$data = [ 'role_id'=> $roleId ];
-					CDB::deleteBySql($sql,$data);
+				if(!empty($remove_role_menu_ids) && is_array($remove_role_menu_ids)){
+					
+					AdminRoleMenu::deleteAll([
+						'and',
+						['role_id' => $role_id],
+						['in', 'menu_id', $remove_role_menu_ids],
+					]);
 				}
 				$innerTransaction->commit();
 			} catch (Exception $e) {

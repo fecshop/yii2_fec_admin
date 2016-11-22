@@ -67,7 +67,7 @@ class AdminConfig extends ActiveRecord
 				"key" =>$key,
 				])
 			->andWhere(
-				" id != $id "
+				" id != :id ",[':id' => $id]
 			)
 			->one()
 			;

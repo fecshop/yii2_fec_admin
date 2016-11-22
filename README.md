@@ -7,11 +7,9 @@ github: https://github.com/fancyecommerce/yii2_fec_admin/
 
 [![Latest Stable Version](https://poser.pugx.org/fancyecommerce/fec_admin/v/stable)](https://packagist.org/packages/fancyecommerce/fec_admin) [![Total Downloads](https://poser.pugx.org/fancyecommerce/fec_admin/downloads)](https://packagist.org/packages/fancyecommerce/fec_admin) [![Latest Unstable Version](https://poser.pugx.org/fancyecommerce/fec_admin/v/unstable)](https://packagist.org/packages/fancyecommerce/fec_admin)
 
-> 功能会继续完善，目前只是一个基本的用户，菜单，权限，log，cache的管理
+> 注意：这个是一个通用后台，集成了 jui（dwz），而不是fecshop，确切的说，fecshop的后台使用了这个扩展作为基础。
 
 > 本框架的目的是为了更快的做一个系统，通过数组配置的方式快速的做出日常所用的增删改查功能。
-
-> 后续，会加入gii生成代码等功能，通过配置的方式快速的生成增删改查的代码，在减少项目前期工作的同时，在功能方面快速的迭代。
 
 > 本框架需要fec 模块的支持，最好使用composer安装，自动解决报依赖关系。
 
@@ -26,10 +24,6 @@ github: https://github.com/fancyecommerce/yii2_fec_admin/
 > 欢迎安装使用，或者学习，本框架有一定的学习yii2的价值。
 
 > 本框架比较适合做ERP CRM  等后台管理性框架。
-
-> 2016年，找时间会做出详细文档，供参阅,继续完善这个后台扩展。
-
-> 本框架的指导思想为：尽大力的封装，尽量通过 php数组配置的方式，展现出想要的功能。
 
 > FancyEcommerce 中文官网发布地址：http://www.fancyecommerce.com/2016/04/29/yii2-dwz-%E6%89%A9%E5%B1%95-%E6%8F%92%E4%BB%B6/ ，欢迎评价，提意见，和不足
 

@@ -54,9 +54,9 @@ class AdminRole extends ActiveRecord
 	public function validateRoleName($attribute,$params){
 		if($role_name = $this->role_name){
 			if($role_id = $this->role_id){
-				$one = AdminRole::find()->where(" role_id != $role_id AND role_name = '".$role_name."' ")->one();
+				$one = AdminRole::find()->where(" role_id != :role_id AND role_name = :role_name ",[':role_id'=>$role_id,':role_name'=>$role_name])->one();
 			}else{
-				$one = AdminRole::find()->where(" role_name = '".$role_name."' ")->one();
+				$one = AdminRole::find()->where(" role_name = :role_name ",[':role_name'=>$role_name])->one();
 			}
 			if($one->role_name){
 				$this->addError($attribute,"this role name is exist!");

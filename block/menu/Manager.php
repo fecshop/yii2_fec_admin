@@ -207,7 +207,7 @@ class Manager{
 			exit;
 		}else{
 			
-			$one = AdminMenu::find()->where(" id = ".$id." AND can_delete = 2 ")->one();
+			$one = AdminMenu::find()->where(" id = :id AND can_delete = 2 ",[':id'=>$id])->one();
 			//echo $one->id;
 			if($one->id){
 				$ids = $this->getMenuAllChildId($id);
@@ -217,8 +217,13 @@ class Manager{
 				$innerTransaction = Yii::$app->db->beginTransaction();
 				try {
 					AdminRoleMenu::deleteAll(['in','menu_id',$ids]);
-					$idsStr = implode(",",$ids);
-					$one->deleteAll(" id in (".$idsStr.") AND can_delete = 2");
+					
+					$one->deleteAll([
+						'and',
+						['can_delete' => 2],
+						['in','id',$ids]
+					]);
+					
 					$innerTransaction->commit();
 					echo  json_encode(["statusCode"=>"200",
 						"message" => "delete menu success!  MENU NAME:".$one->name,
@@ -245,7 +250,7 @@ class Manager{
 		$data = AdminMenu::find()->asArray()
 					//->select(['id'])
 					//->where(['parent_id' => $id])
-					->where(" parent_id = ".$id." AND can_delete = 2 ")
+					->where(" parent_id = :parent_id AND can_delete = 2 ",[':parent_id'=>$id])
 					->all();
 		if(!empty($data)){
 			foreach($data as $node){
