@@ -1,26 +1,19 @@
 <?php
-/**
- * FecShop file.
- *
- * @link http://www.fecshop.com/
- * @copyright Copyright (c) 2016 FecShop Software LLC
- * @license http://www.fecshop.com/license/
+/*
+ * 存放 一些基本的非数据库数据 如 html
+ * 都是数组
  */
 namespace fecadmin\block\role;
 use Yii;
 use fec\helpers\CRequest;
 use fec\helpers\CUrl;
-use fec\helpers\CDB;
 use fec\helpers\CModel;
 use fec\helpers\CConfig;
 use fecadmin\models\AdminRole;
 use fecadmin\models\AdminMenu;
 use fecadmin\models\AdminRoleMenu;
 use fecadmin\models\AdminUserRole;
-/**
- * @author Terry Zhao <2358269014@qq.com>
- * @since 1.0
- */
+use fec\helpers\CDB;
 class Manageredit{
 	
 	public $_param;
@@ -133,7 +126,6 @@ class Manageredit{
 		
 	}
 	
-	
 	# 保存编辑后的Role内容  AdminRole
 	# 以及role对应的菜单表  AdminRoleMenu
 	public function saveMenuAndRole(){
@@ -176,13 +168,15 @@ class Manageredit{
 				if(!empty($add_role_menu_ids)){
 					\fec\helpers\CDB::batchInsert($table,$columnsArr,$valueArr);
 				}
-				if(!empty($remove_role_menu_ids) && is_array($remove_role_menu_ids)){
-					
-					AdminRoleMenu::deleteAll([
-						'and',
-						['role_id' => $role_id],
-						['in', 'menu_id', $remove_role_menu_ids],
-					]);
+				if(!empty($remove_role_menu_ids)){
+					$remove_role_menu_id_str = implode(',',$remove_role_menu_ids);
+					//AdminRoleMenu::deleteAll(['in','menu_id',$remove_role_menu_ids]);
+				
+					$sql = "delete from admin_role_menu where menu_id in ($remove_role_menu_id_str ) and role_id = :role_id ";
+					$data = [ 'role_id'=> $roleId ];
+					CDB::deleteBySql($sql,$data);
+				
+					//$roleId
 				}
 				$innerTransaction->commit();
 			} catch (Exception $e) {
@@ -190,7 +184,6 @@ class Manageredit{
 			}
 		}
 	}
-	
 	
 	# 得到当前数据库中role对应的所有的menu_id
 	public function getDbRoleMenuIds($roleId){
@@ -207,7 +200,7 @@ class Manageredit{
 	}
 	
 	# 得到菜单的所有上级菜单的id
-	public function getAllParentMenuIds($select_menus){
+	public function getAllParentMenuIds($select_menus,$last_arr=[]){
 		$thisIds = [];
 		if(!is_array($select_menus)){
 			$ids = [];
@@ -224,6 +217,9 @@ class Manageredit{
 			$ids = $select_menus;
 		}
 		$thisIds = $ids;
+		if(empty($last_arr)){
+			$last_arr = $ids;
+		}
 		if(!empty($ids)){
 			$parentMenus = AdminMenu::find()->asArray()->where(['in','id',$ids])->all();
 			$parentIds = [];
@@ -231,15 +227,16 @@ class Manageredit{
 				$parent_id = $menu['parent_id'];
 				if($parent_id){
 					$parentIds[] = $parent_id;
-					
 				}
 			}
 			if(!empty($parentIds)){
-				$parent_ids = $this->getAllParentMenuIds($parentIds);
-				$thisIds = array_merge($thisIds,$parent_ids);
+				$last_arr = array_merge($last_arr,$parentIds);
+				return $this->getAllParentMenuIds($parentIds,$last_arr);
+			}else{
+				return $last_arr;
 			}
 		}
-		return $thisIds;
+		return $last_arr;
 		
 	}
 	
