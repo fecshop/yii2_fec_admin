@@ -69,7 +69,7 @@ $login_bannerPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-mas
 				<h2 class="login_title">
 				<!-- <img src="<?= $login_titlePath[1] ?>" /> -->
 				<a href="http://demo.dwzjs.com" style="font-size:15px;text-decoration:none;
-				color:#6f8992;">登录TOMTOP数据管理平台</a>
+				color:#6f8992;">登录FecShop后台</a>
 				</h2>
 			</div>
 		</div>
@@ -81,19 +81,19 @@ $login_bannerPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-mas
 			<div class="login_main">
 				<ul class="helpList">
 					<li><a href="#">功能简介</a></li>
-					<li><a href="#">TOMTOP 详细说明</a></li>
+					<li><a href="#">Fecshop 详细说明</a></li>
 					<li><a href="#">如何快速开始？</a></li>
 					
 				</ul>
 				<div class="login_inner">
-					<p>TOMTOP 数据网站 是用来公司的大数据的操作平台</p>
-					<p>本平台已经实现和ERP的登录同步</p>
+					<p> Fecshop的后台管理</p>
+					
 					<p></p>
 				</div>
 			</div>
 		</div>
 		<div id="login_footer">
-			Copyright &copy; 2016 www.tomtop.com Inc. All Rights Reserved.
+			Copyright &copy; 2016 www.fecshop.com Inc. All Rights Reserved.
 		</div>
 	</div>
 

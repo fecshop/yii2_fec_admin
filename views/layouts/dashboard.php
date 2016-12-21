@@ -138,7 +138,7 @@ $publishedPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-master
 								
 								<ul style="line-height:30px;text-align:center;margin-top:30px;">
 									<li>
-										<h1 style="font-size:36px;"> Tomtop 大数据管理平台</h1>
+										<h1 style="font-size:36px;"> Fecshop后台管理系统</h1>
 										
 									</li>
 									<li>
