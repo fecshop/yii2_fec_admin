@@ -206,6 +206,9 @@ common/config/main-local.php 添加mysql的配置。
 7、访问
 ------------
 
+另外，在入口index.php 添加代码: `error_reporting(E_ALL || ~E_NOTICE); //除去 E_NOTICE 之外的所有错误信息`
+通过这个可以屏蔽掉notice报错信息（notice）。
+
 访问后台 http://127.0.0.1
 初始账号密码为：  admin   admin123
 
