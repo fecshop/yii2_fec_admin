@@ -11,6 +11,13 @@ table.list .info_more a{  border: 1px solid #ccc;
 		text-decoration: none;
 }
 
+html body table.list .trbg{
+	background-color: #f8f8f8;
+}
+html body .grid .gridTbody .selected{
+	background-color: #f8f8f8;
+}
+
 .btnDel:hover{cursor: pointer;}	
 	
 .info_more a.opened i{
