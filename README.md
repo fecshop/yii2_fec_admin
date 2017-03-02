@@ -76,7 +76,7 @@ composer require --prefer-dist fancyecommerce/fec_admin
 或添加
 
 ```
-"fancyecommerce/fec_admin": "~1.3.5.8"
+"fancyecommerce/fec_admin": "~1.3.6.2"
 composer install
 ```
 
