@@ -55,7 +55,7 @@ $login_bannerPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-mas
 		<div id="login_header">
 			<h1 class="login_logo">
 				<!--  <img src="<?= $login_logoPath[1] ?>" /> -->
-				<a href="http://demo.dwzjs.com" style="font-size:35px;text-decoration:none;
+				<a href="<?= Yii::$app->getHomeUrl()  ?>" style="font-size:35px;text-decoration:none;
 				color:#6f8992;"><img src="<?= CUrl::getHomeUrl(); ?>/skin/default/images/blue_logo.png"></a>
 			</h1>
 			<div class="login_headerContent">

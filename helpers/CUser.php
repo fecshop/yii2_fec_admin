@@ -16,7 +16,7 @@ use fecadmin\models\AdminRole;
  */
 class CUser 
 {
-	# ÅĞ¶Ïµ±Ç°µÄÓÃ»§ÊÇ·ñ´æÔÚÄ³¸öÈ¨ÏŞ×é¡£
+	# åˆ¤æ–­å½“å‰çš„ç”¨æˆ·æ˜¯å¦å­˜åœ¨æŸä¸ªæƒé™ç»„ã€‚
 	public static function ifCurrentUserIsSpecificRole($role_name){
 		if(!$role_name)
 			return false;

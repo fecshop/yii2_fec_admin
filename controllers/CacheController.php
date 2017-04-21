@@ -18,7 +18,7 @@ class CacheController extends FecadminbaseController
 {
 	
    
-	# Ë¢ÐÂ»º´æ
+	# åˆ·æ–°ç¼“å­˜
     public function actionIndex()
     {
 		if(CRequest::param("method") == 'reflush'){

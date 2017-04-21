@@ -34,7 +34,7 @@ class SystemLog extends ActiveRecord
     /**
      * @inheritdoc
      */
-	# 设置table
+	# 璁剧疆table
     public static function tableName()
     {
         return 'system_log';
@@ -43,7 +43,7 @@ class SystemLog extends ActiveRecord
 	 /**
      * @inheritdoc
      */
-	# 设置 status  默认  ，以及取值的区间
+	# 璁剧疆 status  榛樿  锛屼互鍙婂彇鍊肩殑鍖洪棿
     public function rules()
     {
         return [

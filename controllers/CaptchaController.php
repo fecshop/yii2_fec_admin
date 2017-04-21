@@ -26,11 +26,11 @@ class CaptchaController extends Controller
             'index' => [
                 'class' => 'fec\helpers\CCaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-				'padding' => 0,//¼ä¾à
-				'height'=>40,//¸ß¶È
-				'width' => 80,  //¿í¶È  
+				'padding' => 0,//é—´è·
+				'height'=>40,//é«˜åº¦
+				'width' => 80,  //å®½åº¦  
 				'offset'=>4,
-				//'foreColor'=>0xffffff,     //×ÖÌåÑÕÉ«
+				//'foreColor'=>0xffffff,     //å­—ä½“é¢œè‰²
             ],
         ];
     }
@@ -38,15 +38,15 @@ class CaptchaController extends Controller
 	/*
 				'class' => 'fec\helpers\CCaptchaAction',
                                     'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-                                    'backColor'=>0x000000,//±³¾°ÑÕÉ«
-                                    'maxLength' => 6, //×î´óÏÔÊ¾¸öÊý
-                                    'minLength' => 5,//×îÉÙÏÔÊ¾¸öÊý
-                                    'padding' => 5,//¼ä¾à
-                                    'height'=>40,//¸ß¶È
-                                    'width' => 130,  //¿í¶È  
-                                    'foreColor'=>0xffffff,     //×ÖÌåÑÕÉ«
-                                    'offset'=>4,        //ÉèÖÃ×Ö·ûÆ«ÒÆÁ¿ ÓÐÐ§¹û
-                                    //'controller'=>'login',        //ÓµÓÐÕâ¸ö¶¯×÷µÄcontroller
+                                    'backColor'=>0x000000,//èƒŒæ™¯é¢œè‰²
+                                    'maxLength' => 6, //æœ€å¤§æ˜¾ç¤ºä¸ªæ•°
+                                    'minLength' => 5,//æœ€å°‘æ˜¾ç¤ºä¸ªæ•°
+                                    'padding' => 5,//é—´è·
+                                    'height'=>40,//é«˜åº¦
+                                    'width' => 130,  //å®½åº¦  
+                                    'foreColor'=>0xffffff,     //å­—ä½“é¢œè‰²
+                                    'offset'=>4,        //è®¾ç½®å­—ç¬¦åç§»é‡ æœ‰æ•ˆæžœ
+                                    //'controller'=>'login',        //æ‹¥æœ‰è¿™ä¸ªåŠ¨ä½œçš„controller
 	*/		
 	
 }

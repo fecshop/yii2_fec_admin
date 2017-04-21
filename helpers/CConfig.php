@@ -30,7 +30,7 @@ class CConfig extends \fec\helpers\CConfig
 	}
 	
 	
-	# µÃµ½»º´æµÄÅäÖÃ
+	# å¾—åˆ°ç¼“å­˜çš„é…ç½®
 	public static function getCacheConfig($key){
 		$cache_key = self::ADMIN_CONFIG_CONFIX.$key;
 		$v = CCache::get($cache_key);

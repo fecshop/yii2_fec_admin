@@ -17,7 +17,7 @@ use fecadmin\FecadminbaseController;
  */
 class LogtjController extends FecadminbaseController
 {
-	# LOG¹ÜÀí
+	# LOGç» ï¼„æ‚Š
     public function actionIndex()
     {
 		$data = $this->getBlock()->getLastData();

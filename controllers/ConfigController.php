@@ -18,7 +18,7 @@ class ConfigController extends FecadminbaseController
 {
 	
    
-	# �ҵ��˻�
+	# 鎴戠殑璐︽埛
     public function actionManager()
     {
 		//echo $this->action->id ;exit;

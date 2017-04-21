@@ -16,7 +16,7 @@ use fecadmin\FecadminbaseController;
  */
 class MyaccountController extends FecadminbaseController
 {
-	# ÎÒµÄÕË»§
+	# æˆ‘çš„è´¦æˆ·
     public function actionIndex()
     {
 		$data = $this->getBlock()->getLastData();

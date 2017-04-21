@@ -16,28 +16,28 @@ use fecadmin\FecadminbaseController;
  */
 class RoleController extends FecadminbaseController
 {
-	# 权限
+	# 鏉冮檺
     public function actionManager()
     {
 		$data = $this->getBlock()->getLastData();
 		return $this->render($this->action->id,$data);
 	}
 	
-	# 权限
+	# 鏉冮檺
     public function actionManageredit()
     {
 		$data = $this->getBlock()->getLastData();
 		return $this->render($this->action->id,$data);
 	}
 	
-	# 权限
+	# 鏉冮檺
     public function actionManagereditsave()
     {
 		$this->getBlock("manageredit")->save();
 		
 	}
 	
-	# 权限
+	# 鏉冮檺
     public function actionManagerdelete()
     {
 		$this->getBlock("manageredit")->delete();

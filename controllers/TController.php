@@ -47,12 +47,12 @@ class TController extends Controller
 		
 		 ob_start();
  
-		echo "Hellon/"; //Êä³ö 
+		echo "Hellon/"; //è¾“å‡º 
 
 		echo $this->dd(6);
 				
 		
-		ob_end_flush();//Êä³öÈ«²¿ÄÚÈİµ½ä¯ÀÀÆ÷ 
+		ob_end_flush();//è¾“å‡ºå…¨éƒ¨å†…å®¹åˆ°æµè§ˆå™¨ 
 		exit;
    
    
@@ -78,7 +78,7 @@ class TController extends Controller
 		$max = strlen($strPol)-1;
 
 		for($i=0;$i<$length;$i++){
-			$str.=$strPol[rand(0,$max)];//rand($min,$max)Éú³É½éÓÚminºÍmaxÁ½¸öÊıÖ®¼äµÄÒ»¸öËæ»úÕûÊı
+			$str.=$strPol[rand(0,$max)];//rand($min,$max)ç”Ÿæˆä»‹äºminå’Œmaxä¸¤ä¸ªæ•°ä¹‹é—´çš„ä¸€ä¸ªéšæœºæ•´æ•°
 		}
 
 		return $str;

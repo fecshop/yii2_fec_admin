@@ -18,7 +18,7 @@ use fecadmin\FecadminbaseController;
 class LogController extends FecadminbaseController
 {
 	
-	# LOGπ‹¿Ì
+	# LOGÁª†ÔºÑÊÇä
     public function actionIndex()
     {
 		
