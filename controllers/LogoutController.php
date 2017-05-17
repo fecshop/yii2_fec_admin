@@ -31,7 +31,7 @@ class LogoutController extends Controller
 			Yii::$app->user->logout();
 		}	
 		\fecadmin\helpers\CSystemlog::saveSystemLog();
-		$this->redirect("/fecadmin/login/index",200);
+		$this->redirect("/fecadmin/login/index",200)->send();
 	}
 	
 	

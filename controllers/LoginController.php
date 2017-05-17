@@ -129,7 +129,7 @@ class LoginController extends Controller
 			$AdminUserLogin->attributes = $loginParam;
 			if($AdminUserLogin->login()){
 				\fecadmin\helpers\CSystemlog::saveSystemLog();
-				$this->redirect("/",200); 
+				$this->redirect("/",200)->send(); 
 			}else{
 				$errors = CModel::getErrorStr($AdminUserLogin->errors);
 			}
