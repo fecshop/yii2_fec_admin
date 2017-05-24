@@ -14,7 +14,7 @@ use yii\web\AssetBundle;
  */
 class DwzLoginAsset extends AssetBundle
 {
-	public $sourcePath = '@fecadmin/myassets';
+	public $sourcePath = '@fecadmin/myassets/dwz_jui-master';
    
 	public $js = [];
    
@@ -22,7 +22,7 @@ class DwzLoginAsset extends AssetBundle
 	
 	//public $cssOptions = ['condition' => 'lte IE9'];
 	public $css = [
-		'dwz_jui-master/themes/css/login.css',
+		'themes/css/login.css',
 		
 		
 	];	

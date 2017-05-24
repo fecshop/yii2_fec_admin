@@ -14,7 +14,7 @@ use yii\web\AssetBundle;
  */
 class EchartsAsset extends AssetBundle
 {
-    public $sourcePath = '@fecadmin/myassets';
+    public $sourcePath = '@fecadmin/myassets/echarts';
 	
 	
 	//public $cssOptions = ['condition' => 'lte IE9'];
@@ -24,7 +24,7 @@ class EchartsAsset extends AssetBundle
 	public $jsOptions = [ 'position' => \yii\web\View::POS_HEAD ];
 	
     public $js = [
-		'echarts/echarts.min.js',
+		'echarts.min.js',
     ];
     public $depends = [
         

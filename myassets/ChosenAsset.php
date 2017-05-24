@@ -14,18 +14,18 @@ use yii\web\AssetBundle;
  */
 class ChosenAsset extends AssetBundle
 {
-    public $sourcePath = '@fecadmin/myassets';
+    public $sourcePath = '@fecadmin/myassets/chosen';
 	
 	
 	//public $cssOptions = ['condition' => 'lte IE9'];
 	public $css = [
 		 
-		'chosen/chosen.css',
+		'chosen.css',
 	];	
 	public $jsOptions = [ 'position' => \yii\web\View::POS_HEAD ];
 	
     public $js = [
-		'chosen/chosen.jquery.min.js',
+		'chosen.jquery.min.js',
     ];
     public $depends = [
         
