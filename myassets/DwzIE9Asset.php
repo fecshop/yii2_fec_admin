@@ -14,7 +14,7 @@ use yii\web\AssetBundle;
  */
 class DwzIE9Asset extends AssetBundle
 {
-    public $sourcePath = '@fecadmin/myassets';
+    public $sourcePath = '@fecadmin/myassets/dwz_jui-master';
 	//public $cssOptions = ['condition' => 'lte IE9'];
 	public $jsOptions = [ 
 		'position' => \yii\web\View::POS_HEAD ,
@@ -22,8 +22,8 @@ class DwzIE9Asset extends AssetBundle
 	];
 	
     public $js = [
-        'dwz_jui-master/js/speedup.js',
-		'dwz_jui-master/jquery-1.11.3.min.js',
+        'js/speedup.js',
+		'jquery-1.11.3.min.js',
 		
     ];
     public $depends = [

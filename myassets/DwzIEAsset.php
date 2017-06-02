@@ -14,12 +14,12 @@ use yii\web\AssetBundle;
  */
 class DwzIEAsset extends AssetBundle
 {
-    public $sourcePath = '@fecadmin/myassets';
+    public $sourcePath = '@fecadmin/myassets/dwz_jui-master';
 	
 	
 	public $cssOptions = ['condition' => 'if IE'];
 	public $css = [
-		'dwz_jui-master/themes/css/ieHack.css',
+		'themes/css/ieHack.css',
 		
 	];	
     

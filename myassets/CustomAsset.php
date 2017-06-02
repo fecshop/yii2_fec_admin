@@ -14,17 +14,17 @@ use yii\web\AssetBundle;
  */
 class CustomAsset extends AssetBundle
 {
-    public $sourcePath = '@fecadmin/myassets';
+    public $sourcePath = '@fecadmin/myassets/custom';
 	
 	
 	//public $cssOptions = ['condition' => 'lte IE9'];
 	public $css = [
-		'custom/css/style.css',
+		'css/style.css',
 	];	
 	public $jsOptions = [ 'position' => \yii\web\View::POS_HEAD ];
 	
     public $js = [
-		'custom/js/js.js',
+		'js/js.js',
     ];
     public $depends = [
         
