@@ -112,14 +112,15 @@ class LoginController extends Controller
 		}
 	}
 	
-
     public function actionIndex()
     {
 		//exit;
 		$isGuest = Yii::$app->user->isGuest;
 		//echo $isGuest;exit;
 		if(!$isGuest){
-			$this->redirect("/",200);
+			//$this->redirect("/",200);
+            Yii::$app->getResponse()->redirect("/")->send();
+            return;
 		}	
 		$errors = '';
 		$loginParam = \fec\helpers\CRequest::param('login');
@@ -129,7 +130,9 @@ class LoginController extends Controller
 			$AdminUserLogin->attributes = $loginParam;
 			if($AdminUserLogin->login()){
 				\fecadmin\helpers\CSystemlog::saveSystemLog();
-				$this->redirect("/",200)->send(); 
+				//$this->redirect("/",200)->send();
+                Yii::$app->getResponse()->redirect("/")->send();                
+                return;
 			}else{
 				$errors = CModel::getErrorStr($AdminUserLogin->errors);
 			}
