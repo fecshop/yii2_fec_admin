@@ -172,7 +172,7 @@ class Manageredit{
 					$remove_role_menu_id_str = implode(',',$remove_role_menu_ids);
 					//AdminRoleMenu::deleteAll(['in','menu_id',$remove_role_menu_ids]);
 				
-					$sql = "delete from admin_role_menu where menu_id in ($remove_role_menu_id_str ) and role_id = :role_id ";
+					$sql = "delete from $table where menu_id in ($remove_role_menu_id_str ) and role_id = :role_id ";
 					$data = [ 'role_id'=> $roleId ];
 					CDB::deleteBySql($sql,$data);
 				
