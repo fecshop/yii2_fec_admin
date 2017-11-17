@@ -23,19 +23,19 @@ class LogoutController extends Controller
 
     public function actionIndex()
     {
-		$isGuest = Yii::$app->user->isGuest;
-		//echo $isGuest;exit;
-		if($isGuest){
-			
-		}else{
-			Yii::$app->user->logout();
-		}	
-		\fecadmin\helpers\CSystemlog::saveSystemLog();
+        $isGuest = Yii::$app->user->isGuest;
+        //echo $isGuest;exit;
+        if($isGuest){
+            
+        }else{
+            Yii::$app->user->logout();
+        }    
+        \fecadmin\helpers\CSystemlog::saveSystemLog();
         Yii::$app->getResponse()->redirect("/fecadmin/login/index")->send();   
-		//$this->redirect("/fecadmin/login/index",200)->send();
-	}
-	
-	
-	
-	
+        //$this->redirect("/fecadmin/login/index",200)->send();
+    }
+    
+    
+    
+    
 }

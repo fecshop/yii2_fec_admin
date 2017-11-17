@@ -20,7 +20,7 @@ class AdminRoleMenu extends ActiveRecord
 	
     public static function tableName()
     {
-        return 'admin_role_menu';
+        return '{{%admin_role_menu}}';
     }
 	
 	public function rules()

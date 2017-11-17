@@ -153,7 +153,7 @@ class Manageredit{
 			$remove_role_menu_ids = array_diff($role_menu_ids,$select_menu_ids);
 			
 			# 事务  插入  和  删除   role_menu 表中，当前role_id 对应的menu_id
-			$table 		= 'admin_role_menu';
+			$table 		= \fecadmin\models\AdminRoleMenu::tableName();
 	 		$columnsArr = ['menu_id','role_id','created_at','updated_at'];
 			$valueArr = [];
 			$now_date = date("Y-m-d H:i:s");

@@ -24,7 +24,7 @@ class AdminUserRole extends ActiveRecord
 	
     public static function tableName()
     {
-        return 'admin_user_role';
+        return '{{%admin_user_role}}';
     }
 	
 	public function rules()

@@ -20,7 +20,7 @@ class AdminLog extends ActiveRecord
 	
     public static function tableName()
     {
-        return 'admin_visit_log';
+        return '{{%admin_visit_log}}';
     }
 	
 	/*

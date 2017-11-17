@@ -37,7 +37,7 @@ class AdminConfig extends ActiveRecord
 	# 设置table
     public static function tableName()
     {
-        return 'admin_config';
+        return '{{%admin_config}}';
     }
 	
 	 /**

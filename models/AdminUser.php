@@ -99,7 +99,7 @@ class AdminUser extends ActiveRecord implements IdentityInterface ,RateLimitInte
 	# 设置table
     public static function tableName()
     {
-        return 'admin_user';
+        return '{{%admin_user}}';
     }
 
     /**

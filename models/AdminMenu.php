@@ -24,7 +24,7 @@ class AdminMenu extends ActiveRecord
 	
     public static function tableName()
     {
-        return 'admin_menu';
+        return '{{%admin_menu}}';
     }
 	
 	public function rules()

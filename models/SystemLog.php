@@ -37,7 +37,7 @@ class SystemLog extends ActiveRecord
 	# 设置table
     public static function tableName()
     {
-        return 'system_log';
+        return '{{%system_log}}';
     }
 	
 	 /**
