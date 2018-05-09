@@ -26,6 +26,8 @@ use fec\controllers\FecController;
  */
 class FecadminbaseController extends FecController
 {
+    public $enableCsrfValidation = false;
+    
     public function getViewPath()
     {
 		return Yii::getAlias('@fecadmin/views') . DIRECTORY_SEPARATOR . $this->id;
