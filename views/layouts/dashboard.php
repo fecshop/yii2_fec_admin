@@ -21,7 +21,6 @@ use fecadmin\views\layouts\Footer;
 use fecadmin\views\layouts\Header;
 use fecadmin\views\layouts\Menu;
 
-
 AppAsset::register($this);
 
 //$cssAndJs = Head::getJsAndCss();
@@ -31,18 +30,12 @@ AppAsset::register($this);
 
 ?>
 
-
-	
-
-
-
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>"  xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -51,7 +44,6 @@ AppAsset::register($this);
 	<script src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
     -->
 	<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
-   
 	<!-- 3.0 -->
     <script type="text/javascript">
         // 路径配置
@@ -61,13 +53,11 @@ AppAsset::register($this);
 				echarts: 'http://echarts.baidu.com/build/dist'
             }
         });
-    </script>
-	  
+    </script>  
 <script> 
 <?php
-$publishedPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-master/dwz.frag.xml');
- 
- ?>
+    $publishedPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-master/dwz.frag.xml');
+?>
 　$(function(){
 	DWZ.init("<?= $publishedPath[1]; ?>", {
 		loginUrl:"login_dialog.html", loginTitle:"登录",	// 弹出登录对话框
@@ -87,17 +77,10 @@ $publishedPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-master
 </head>
 <body>
 <?php $this->beginBody() ?>
- 
-
-
 	<div id="layout">
 		<div id="header">
 			<?= Header::getContent();  ?>
-
-			<!-- navMenu -->
-			
 		</div>
-
 		<div id="leftside">
 			<div id="sidebar_s">
 				<div class="collapse">
@@ -130,47 +113,31 @@ $publishedPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-master
 				<div class="navTab-panel tabsPageContent layoutBox">
 					<div class="page unitBox">
 						<div class="accountInfo">
-							
-							
 							<p><span>您好：<?= \fec\helpers\CUser::getCurrentUsername();   ?></span></p>
-							</div>
+                        </div>
 						<div class="pageFormContent" layoutH="80" style="margin-right:230px">
-								
-								<ul style="line-height:30px;text-align:center;margin-top:30px;">
-									<li>
-										<h1 style="font-size:36px;"> Fecshop后台管理系统</h1>
-										
-									</li>
-									<li>
-										<div style="padding-top:150px;">
-										注：如果权限不够，请联系管理员开通权限。
-										</div>
-									</li>
-								
-								</ul>
-
+                            <ul style="line-height:30px;text-align:center;margin-top:30px;">
+                                <li>
+                                    <h1 style="font-size:36px;"> <a target="_blank" href="http://www.fecshop.com">Fecshop</a>后台管理系统</h1>
+                                    
+                                </li>
+                                <li>
+                                    <div style="padding-top:150px;">
+                                    注：如果权限不够，请联系管理员开通权限。
+                                    </div>
+                                </li>
+                            </ul>
 						</div>
-						
-					
 					</div>
-					
 				</div>
 			</div>
 		</div>
-
 	</div>
 <footer class="footer">
     <div class="container">
         <?= Footer::getContent(); ?>
-
-       
     </div>
 </footer>
-	
-
-
-
-
 
 <?php $this->endBody() ?>
 </body>

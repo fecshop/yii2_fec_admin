@@ -20,10 +20,7 @@ use fecadmin\views\layouts\Head;
 use fecadmin\views\layouts\Footer;
 use fecadmin\views\layouts\Header;
 use fecadmin\views\layouts\Menu;
-
-
 LoginAsset::register($this);
-
 ?>
 
 <?php
@@ -31,11 +28,7 @@ $login_logoPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-maste
 $login_titlePath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-master/themes/default/images/login_title.png');
 $header_bgPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-master/themes/default/images/header_bg.png');
 $login_bannerPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-master/themes/default/images/login_banner.jpg');
- 
- ?>
-	
-
-
+?>
 
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -43,11 +36,9 @@ $login_bannerPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-mas
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -61,14 +52,14 @@ $login_bannerPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-mas
 			<div class="login_headerContent">
 				<div class="navList">
 					<ul>
-						<li><a href="#">设为首页</a></li>
-						<li><a href="#">反馈</a></li>
-						<li><a href="#" target="_blank">帮助</a></li>
+						<li><a target="_blank" href="http://www.fecshop.com/first">设为首页</a></li>
+						<li><a target="_blank"  href="http://www.fecshop.com/topic">反馈</a></li>
+						<li><a target="_blank"  href="http://www.fecshop.com/topic" target="_blank">帮助</a></li>
 					</ul>
 				</div>
 				<h2 class="login_title">
 				<!-- <img src="<?= $login_titlePath[1] ?>" /> -->
-				<a href="http://demo.dwzjs.com" style="font-size:15px;text-decoration:none;
+				<a target="_blank" href="http://www.fecshop.com" style="font-size:15px;text-decoration:none;
 				color:#6f8992;">登录FecShop后台</a>
 				</h2>
 			</div>
@@ -80,24 +71,21 @@ $login_bannerPath = $this->assetManager->publish('@fecadmin/myassets/dwz_jui-mas
 			<div class="login_banner"><img src="<?= $login_bannerPath[1] ?>" /></div>
 			<div class="login_main">
 				<ul class="helpList">
-					<li><a href="#">功能简介</a></li>
-					<li><a href="#">Fecshop 详细说明</a></li>
-					<li><a href="#">如何快速开始？</a></li>
-					
+					<li><a target="_blank" href="http://www.fecshop.com/doc/fecshop-guide/develop/cn-1.0/guide-fecshop-appadmin-about.html">功能简介</a></li>
+					<li><a target="_blank" href="http://www.fecshop.com/first">Fecshop 详细说明</a></li>
+					<li><a target="_blank" href="http://www.fecshop.com/doc/fecshop-guide/develop/cn-1.0/guide-fecshop-appadmin-about.html">如何快速开始？</a></li>
 				</ul>
 				<div class="login_inner">
-					<p> Fecshop的后台管理</p>
+					<p> <a  style="text-decoration:none;color:#333" target="_blank" href="http://www.fecshop.com">Fecshop</a>的后台管理</p>
 					
 					<p></p>
 				</div>
 			</div>
 		</div>
 		<div id="login_footer">
-			Copyright &copy; 2016 www.fecshop.com Inc. All Rights Reserved.
+			Copyright &copy; 2016 <a style="text-decoration:none" target="_blank" href="http://www.fecshop.com">www.fecshop.com</a> Inc. All Rights Reserved.
 		</div>
 	</div>
-
-
 <?php $this->endBody() ?>
 </body>
 </html>
