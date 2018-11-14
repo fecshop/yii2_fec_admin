@@ -57,7 +57,7 @@ class AdminUser extends ActiveRecord implements IdentityInterface ,RateLimitInte
 		$this->allowance_updated_at = $timestamp;
 		$this->save();
 	}
-	
+
 	
 	 /**
      * @inheritdoc

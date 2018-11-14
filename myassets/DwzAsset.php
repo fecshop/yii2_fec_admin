@@ -75,7 +75,7 @@ class DwzAsset extends AssetBundle
 		'js/dwz.combox.js',
 		'js/dwz.print.js',
 		//'bin/dwz.min.js',
-		'js/dwz.regional.zh.js',
+		'js/dwz.regional.js',
 		//'dwz.frag.xml',
 		
     ];

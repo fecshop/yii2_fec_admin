@@ -11,7 +11,7 @@
 				<a class="maximize" href="#maximize">maximize</a>
 				<a class="restore" href="#restore">restore</a>
 				<a class="minimize" href="#minimize">minimize</a>
-				<h1>Window</h1>
+				<h1>弹出窗口</h1>
 			</div>
 		</div>
 	</div>
@@ -91,28 +91,28 @@
 <div id="dialogBackground" class="dialogBackground"></div>
 
 <div id='background' class='background'></div>
-<div id='progressBar' class='progressBar'>Data Loading, Waiting...</div>
+<div id='progressBar' class='progressBar'>数据加载中，请稍等...</div>
 ]]></_PAGE_>
 
 <!-- dwz.pagination -->
 <_PAGE_ id="pagination"><![CDATA[
 <ul>
 	<li class="j-first">
-		<a class="first" href="javascript:;"><span>First</span></a>
-		<span class="first"><span>First</span></span>
+		<a class="first" href="javascript:;"><span>首页</span></a>
+		<span class="first"><span>首页</span></span>
 	</li>
 	<li class="j-prev">
-		<a class="previous" href="javascript:;"><span>Previous</span></a>
-		<span class="previous"><span>Previous</span></span>
+		<a class="previous" href="javascript:;"><span>上一页</span></a>
+		<span class="previous"><span>上一页</span></span>
 	</li>
 	#pageNumFrag#
 	<li class="j-next">
-		<a class="next" href="javascript:;"><span>Next</span></a>
-		<span class="next"><span>Next</span></span>
+		<a class="next" href="javascript:;"><span>下一页</span></a>
+		<span class="next"><span>下一页</span></span>
 	</li>
 	<li class="j-last">
-		<a class="last" href="javascript:;"><span>Last</span></a>
-		<span class="last"><span>Last</span></span>
+		<a class="last" href="javascript:;"><span>末页</span></a>
+		<span class="last"><span>末页</span></span>
 	</li>
 	<li class="jumpto"><input class="textInput" type="text" size="4" value="#currentPage#" /><input class="goto" type="button" value="确定" /></li>
 </ul>
@@ -142,7 +142,7 @@
 		</div>
 		<div class="body">
 			<dl class="dayNames"><dt>日</dt><dt>一</dt><dt>二</dt><dt>三</dt><dt>四</dt><dt>五</dt><dt>六</dt></dl>
-			<dl class="days">Date List</dl>
+			<dl class="days">日期列表选项</dl>
 			<div style="clear:both;height:0;line-height:0"></div>
 			
 		</div>
@@ -158,8 +158,8 @@
 					<td><ul><li class="up">&and;</li><li class="down">&or;</li></ul></td>
 				</tr>
 			</table>
-			<button type="button" class="clearBut">Clear</button>
-			<button type="button" class="okBut">Confirm</button>
+			<button type="button" class="clearBut">清空</button>
+			<button type="button" class="okBut">确定</button>
 		<div>
 		<div class="tm">
 			<ul class="hh">
@@ -217,28 +217,28 @@
 
 <_PAGE_ id="navTabCM"><![CDATA[
 <ul id="navTabCM">
-	<li rel="reload">Refresh tab</li>
-	<li rel="closeCurrent">Close tab</li>
-	<li rel="closeOther">Close Other tab</li>
-	<li rel="closeAll">Close All tab</li>
+	<li rel="reload">刷新标签页</li>
+	<li rel="closeCurrent">关闭标签页</li>
+	<li rel="closeOther">关闭其它标签页</li>
+	<li rel="closeAll">关闭全部标签页</li>
 </ul>
 ]]></_PAGE_>
 <_PAGE_ id="dialogCM"><![CDATA[
 <ul id="dialogCM">
-	<li rel="closeCurrent">Close Popup</li>
-	<li rel="closeOther">Close Other Popup</li>
-	<li rel="closeAll">Close All Popup</li>
+	<li rel="closeCurrent">关闭弹出窗口</li>
+	<li rel="closeOther">关闭其它弹出窗口</li>
+	<li rel="closeAll">关闭全部弹出窗口</li>
 </ul>
 ]]></_PAGE_>
 <_PAGE_ id="externalFrag"><![CDATA[
 <iframe src="{url}" style="width:100%;height:{height};" frameborder="no" border="0" marginwidth="0" marginheight="0"></iframe>
 ]]></_PAGE_>
-<_MSG_ id="statusCode_503"><![CDATA[The server is currently overloaded or is being maintained!]]></_MSG_>
-<_MSG_ id="validateFormError"><![CDATA[The submitted data is incomplete, there are errors in {0} fields, please correct before submitting!]]></_MSG_>
-<_MSG_ id="sessionTimout"><![CDATA[Session timed out, please log in again!]]></_MSG_>
-<_MSG_ id="alertSelectMsg"><![CDATA[Please select information!]]></_MSG_>
-<_MSG_ id="forwardConfirmMsg"><![CDATA[Go ahead!]]></_MSG_>
+<_MSG_ id="statusCode_503"><![CDATA[服务器当前负载过大或者正在维护!]]></_MSG_>
+<_MSG_ id="validateFormError"><![CDATA[提交数据不完整，{0}个字段有错误，请改正后再提交!]]></_MSG_>
+<_MSG_ id="sessionTimout"><![CDATA[会话超时，请重新登录!]]></_MSG_>
+<_MSG_ id="alertSelectMsg"><![CDATA[请选择信息!]]></_MSG_>
+<_MSG_ id="forwardConfirmMsg"><![CDATA[继续下一步!]]></_MSG_>
 
 <_MSG_ id="dwzTitle"><![CDATA[Fecshop]]></_MSG_>
-<_MSG_ id="mainTabTitle"><![CDATA[My Main Page]]></_MSG_>
+<_MSG_ id="mainTabTitle"><![CDATA[我的主页]]></_MSG_>
 </_AJAX_>
