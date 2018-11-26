@@ -18,9 +18,6 @@ use fecadmin\models\AdminUser\AdminUserLogin;
  */
 class LogoutController extends Controller
 {
-
-   
-
     public function actionIndex()
     {
         $isGuest = Yii::$app->user->isGuest;
@@ -34,8 +31,4 @@ class LogoutController extends Controller
         Yii::$app->getResponse()->redirect("/fecadmin/login/index")->send();   
         //$this->redirect("/fecadmin/login/index",200)->send();
     }
-    
-    
-    
-    
 }

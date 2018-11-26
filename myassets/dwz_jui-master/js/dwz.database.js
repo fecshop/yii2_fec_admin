@@ -401,6 +401,8 @@
 
 				$this.click(function(){
 					var targetType = $this.attr("targetType");
+                    var csrfName = $this.attr("csrfName");
+                    var csrfVal = $this.attr("csrfVal");
 					var ids = _getIds(selectedIds, targetType);
 					if (!ids) {
 						alertMsg.error($this.attr("warn") || DWZ.msg("alertSelectMsg"));
@@ -412,7 +414,7 @@
 					
 					function _doPost(){
 						$.ajax({
-							type:'GET', url:$this.attr('href'), dataType:'json', cache: false,
+							type:'POST', url:$this.attr('href'), dataType:'json', cache: false,
 							data: function(){
 								if (postType == 'map'){
 									return $.map(ids.split(','), function(val, i) {
@@ -421,6 +423,10 @@
 								} else {
 									var _data = {};
 									_data[selectedIds] = ids;
+                                    if (csrfName && csrfVal) {
+                                         _data[csrfName] = csrfVal;
+                                    }
+                                   
 									return _data;
 								}
 							}(),

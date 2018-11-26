@@ -349,6 +349,31 @@ function ajaxTodo(url, callback){
 	});
 }
 
+
+function ajaxTodoPost(url, thisE, callback){
+    var csrfVal = thisE.attr("csrfVal");
+    var csrfName = thisE.attr("csrfName");
+	var $callback = callback || navTabAjaxDone;
+	if (! $.isFunction($callback)) $callback = eval('(' + callback + ')');
+	$.ajax({
+		type:'POST',
+		url:url,
+		dataType:"json",
+        data: function(){
+            var _data = {};
+            if (csrfName && csrfVal) {
+                 _data[csrfName] = csrfVal;
+            }
+           
+            return _data;
+        }(),
+		cache: false,
+		success: $callback,
+		error: DWZ.ajaxError
+	});
+}
+
+
 /**
  * http://www.uploadify.com/documentation/uploadify/onqueuecomplete/	
  */
@@ -412,11 +437,11 @@ $.fn.extend({
 				if (title) {
 					alertMsg.confirm(title, {
 						okCall: function(){
-							ajaxTodo(url, $this.attr("callback"));
+							ajaxTodoPost(url, $this, $this.attr("callback"));
 						}
 					});
 				} else {
-					ajaxTodo(url, $this.attr("callback"));
+					ajaxTodoPost(url, $this, $this.attr("callback"));
 				}
 				event.preventDefault();
 			});
