@@ -16,7 +16,7 @@
 			if (dialog){
 				var jDContent = dialog.find(".dialogContent");
 				jDContent.ajaxUrl({
-					type:"POST", url:url, data:op.data, callback:function(response){
+					type:"GET", url:url, data:op.data, callback:function(response){
 						jDContent.find("[layoutH]").layoutH(jDContent);
 						$(".pageContent", dialog).width($(dialog).width()-14);
 						$(":button.close", dialog).click(function(){
