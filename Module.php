@@ -17,6 +17,7 @@ class Module extends \fec\AdminModule
 {
     public function init()
     {
+		parent::init();  
 		# 以下代码必须指定
         $this->controllerNamespace 	= 	__NAMESPACE__ . '\\controllers';
 		$this->_currentDir			= 	__DIR__ ;
@@ -24,7 +25,6 @@ class Module extends \fec\AdminModule
 		
 		# 指定默认的man文件
 		$this->layout = "main_ajax.php";
-		parent::init();  
 		
     }
 }
