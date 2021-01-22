@@ -200,8 +200,19 @@ function initUI(_box){
     var div = document.getElementById("container");
     var w = div.offsetWidth;    // 返回元素的总宽度
     var h = div.offsetHeight;    // 返回元素的总高度
+    $(".big_dialog").attr("width", w*0.99);
+    $(".big_dialog").attr("height", h*0.95);
     $(".big_dialog").attr("width", w*0.95);
     $(".big_dialog").attr("height", h*0.95);
+    
+    $(".btnEdit").attr("width", w*0.95);
+    $(".btnEdit").attr("height", h*0.95);
+    
+    $(".toolBar .add").attr("width", w*0.95);
+    $(".toolBar .add").attr("height", h*0.95);
+    
+    $(".toolBar .edit").attr("width", w*0.95);
+    $(".toolBar .edit").attr("height", h*0.95);
     
 	//dialogs
 	$("a[target=dialog]", $p).each(function(){
